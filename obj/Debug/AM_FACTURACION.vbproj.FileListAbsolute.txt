@@ -1,0 +1,9 @@
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\bin\Debug\AM_FACTURACION.exe
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\bin\Debug\AM_FACTURACION.pdb
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.vbprojResolveAssemblyReference.cache
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.exe
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.pdb
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.MainForm.resources
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.vbproj.GenerateResource.Cache
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.cliente_form.resources
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.ins_cliente_form.resources
