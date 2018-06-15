@@ -39,16 +39,19 @@ Partial Class MainForm
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.panel1 = New System.Windows.Forms.Panel()
 		Me.panel2 = New System.Windows.Forms.Panel()
-		Me.button5 = New System.Windows.Forms.Button()
 		Me.tx_tel_cliente = New System.Windows.Forms.TextBox()
 		Me.tx_ruc_cliente = New System.Windows.Forms.TextBox()
 		Me.button4 = New System.Windows.Forms.Button()
 		Me.dataGridView1 = New System.Windows.Forms.DataGridView()
 		Me.button3 = New System.Windows.Forms.Button()
 		Me.tx_nom_cliente = New System.Windows.Forms.TextBox()
+		Me.button5 = New System.Windows.Forms.Button()
 		Me.panel3 = New System.Windows.Forms.Panel()
 		Me.printDocument1 = New System.Drawing.Printing.PrintDocument()
 		Me.printDialog1 = New System.Windows.Forms.PrintDialog()
+		Me.label2 = New System.Windows.Forms.Label()
+		Me.label3 = New System.Windows.Forms.Label()
+		Me.label4 = New System.Windows.Forms.Label()
 		Me.panel1.SuspendLayout
 		Me.panel2.SuspendLayout
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
@@ -59,7 +62,7 @@ Partial Class MainForm
 		'
 		Me.button2.BackColor = System.Drawing.SystemColors.ControlLightLight
 		Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button2.Location = New System.Drawing.Point(846, 12)
+		Me.button2.Location = New System.Drawing.Point(13, 3)
 		Me.button2.Name = "button2"
 		Me.button2.Size = New System.Drawing.Size(125, 44)
 		Me.button2.TabIndex = 2
@@ -89,9 +92,9 @@ Partial Class MainForm
 		'button1
 		'
 		Me.button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button1.Location = New System.Drawing.Point(260, 12)
+		Me.button1.Location = New System.Drawing.Point(260, 17)
 		Me.button1.Name = "button1"
-		Me.button1.Size = New System.Drawing.Size(112, 40)
+		Me.button1.Size = New System.Drawing.Size(112, 32)
 		Me.button1.TabIndex = 1
 		Me.button1.Text = "Buscar"
 		Me.button1.UseVisualStyleBackColor = true
@@ -99,14 +102,20 @@ Partial Class MainForm
 		'
 		'panel1
 		'
+		Me.panel1.BackColor = System.Drawing.SystemColors.ControlDark
+		Me.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.panel1.Controls.Add(Me.button2)
-		Me.panel1.Location = New System.Drawing.Point(12, 557)
+		Me.panel1.Location = New System.Drawing.Point(12, 571)
 		Me.panel1.Name = "panel1"
-		Me.panel1.Size = New System.Drawing.Size(987, 67)
+		Me.panel1.Size = New System.Drawing.Size(987, 53)
 		Me.panel1.TabIndex = 4
 		'
 		'panel2
 		'
+		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel2.Controls.Add(Me.label4)
+		Me.panel2.Controls.Add(Me.label3)
+		Me.panel2.Controls.Add(Me.label2)
 		Me.panel2.Controls.Add(Me.tx_tel_cliente)
 		Me.panel2.Controls.Add(Me.tx_ruc_cliente)
 		Me.panel2.Controls.Add(Me.button4)
@@ -115,23 +124,13 @@ Partial Class MainForm
 		Me.panel2.Controls.Add(Me.tx_nom_cliente)
 		Me.panel2.Location = New System.Drawing.Point(12, 84)
 		Me.panel2.Name = "panel2"
-		Me.panel2.Size = New System.Drawing.Size(987, 467)
+		Me.panel2.Size = New System.Drawing.Size(987, 481)
 		Me.panel2.TabIndex = 5
-		'
-		'button5
-		'
-		Me.button5.Location = New System.Drawing.Point(826, 24)
-		Me.button5.Name = "button5"
-		Me.button5.Size = New System.Drawing.Size(127, 23)
-		Me.button5.TabIndex = 6
-		Me.button5.Text = "Exportar Excel"
-		Me.button5.UseVisualStyleBackColor = true
-		AddHandler Me.button5.Click, AddressOf Me.Button5Click
 		'
 		'tx_tel_cliente
 		'
-		Me.tx_tel_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_tel_cliente.Location = New System.Drawing.Point(18, 85)
+		Me.tx_tel_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_tel_cliente.Location = New System.Drawing.Point(156, 83)
 		Me.tx_tel_cliente.Multiline = true
 		Me.tx_tel_cliente.Name = "tx_tel_cliente"
 		Me.tx_tel_cliente.Size = New System.Drawing.Size(337, 29)
@@ -140,8 +139,8 @@ Partial Class MainForm
 		'
 		'tx_ruc_cliente
 		'
-		Me.tx_ruc_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_ruc_cliente.Location = New System.Drawing.Point(18, 50)
+		Me.tx_ruc_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_ruc_cliente.Location = New System.Drawing.Point(156, 48)
 		Me.tx_ruc_cliente.Multiline = true
 		Me.tx_ruc_cliente.Name = "tx_ruc_cliente"
 		Me.tx_ruc_cliente.Size = New System.Drawing.Size(337, 29)
@@ -152,7 +151,7 @@ Partial Class MainForm
 		'
 		Me.button4.BackColor = System.Drawing.SystemColors.ControlLightLight
 		Me.button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button4.Location = New System.Drawing.Point(777, 426)
+		Me.button4.Location = New System.Drawing.Point(777, 438)
 		Me.button4.Name = "button4"
 		Me.button4.Size = New System.Drawing.Size(194, 38)
 		Me.button4.TabIndex = 3
@@ -166,34 +165,49 @@ Partial Class MainForm
 		Me.dataGridView1.AllowUserToDeleteRows = false
 		Me.dataGridView1.AllowUserToOrderColumns = true
 		Me.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.dataGridView1.Location = New System.Drawing.Point(18, 136)
+		Me.dataGridView1.Location = New System.Drawing.Point(18, 120)
 		Me.dataGridView1.Name = "dataGridView1"
 		Me.dataGridView1.ReadOnly = true
-		Me.dataGridView1.Size = New System.Drawing.Size(953, 284)
+		Me.dataGridView1.Size = New System.Drawing.Size(953, 312)
 		Me.dataGridView1.TabIndex = 3
 		'
 		'button3
 		'
-		Me.button3.Location = New System.Drawing.Point(432, 15)
+		Me.button3.BackColor = System.Drawing.SystemColors.ScrollBar
+		Me.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+		Me.button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.button3.Location = New System.Drawing.Point(499, 13)
 		Me.button3.Name = "button3"
-		Me.button3.Size = New System.Drawing.Size(113, 29)
+		Me.button3.Size = New System.Drawing.Size(184, 101)
 		Me.button3.TabIndex = 2
 		Me.button3.Text = "Buscar Cliente"
-		Me.button3.UseVisualStyleBackColor = true
+		Me.button3.UseVisualStyleBackColor = false
 		AddHandler Me.button3.Click, AddressOf Me.Button3Click
 		'
 		'tx_nom_cliente
 		'
-		Me.tx_nom_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_nom_cliente.Location = New System.Drawing.Point(18, 15)
+		Me.tx_nom_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_nom_cliente.Location = New System.Drawing.Point(156, 13)
 		Me.tx_nom_cliente.Multiline = true
 		Me.tx_nom_cliente.Name = "tx_nom_cliente"
 		Me.tx_nom_cliente.Size = New System.Drawing.Size(337, 29)
 		Me.tx_nom_cliente.TabIndex = 1
 		Me.tx_nom_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
+		'button5
+		'
+		Me.button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.button5.Location = New System.Drawing.Point(826, 15)
+		Me.button5.Name = "button5"
+		Me.button5.Size = New System.Drawing.Size(145, 37)
+		Me.button5.TabIndex = 6
+		Me.button5.Text = "Exportar Excel"
+		Me.button5.UseVisualStyleBackColor = true
+		AddHandler Me.button5.Click, AddressOf Me.Button5Click
+		'
 		'panel3
 		'
+		Me.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.panel3.Controls.Add(Me.button5)
 		Me.panel3.Controls.Add(Me.button1)
 		Me.panel3.Controls.Add(Me.label1)
@@ -211,11 +225,41 @@ Partial Class MainForm
 		'
 		Me.printDialog1.UseEXDialog = true
 		'
+		'label2
+		'
+		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label2.Location = New System.Drawing.Point(17, 13)
+		Me.label2.Name = "label2"
+		Me.label2.Size = New System.Drawing.Size(121, 29)
+		Me.label2.TabIndex = 6
+		Me.label2.Text = "CLIENTE:"
+		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label3
+		'
+		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label3.Location = New System.Drawing.Point(58, 48)
+		Me.label3.Name = "label3"
+		Me.label3.Size = New System.Drawing.Size(80, 29)
+		Me.label3.TabIndex = 7
+		Me.label3.Text = "RUC:"
+		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label4
+		'
+		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label4.Location = New System.Drawing.Point(65, 83)
+		Me.label4.Name = "label4"
+		Me.label4.Size = New System.Drawing.Size(73, 29)
+		Me.label4.TabIndex = 8
+		Me.label4.Text = "TEL:"
+		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
 		'MainForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-		Me.ClientSize = New System.Drawing.Size(1011, 627)
+		Me.ClientSize = New System.Drawing.Size(1008, 630)
 		Me.Controls.Add(Me.panel3)
 		Me.Controls.Add(Me.panel2)
 		Me.Controls.Add(Me.panel1)
@@ -229,6 +273,9 @@ Partial Class MainForm
 		Me.panel3.PerformLayout
 		Me.ResumeLayout(false)
 	End Sub
+	Private label2 As System.Windows.Forms.Label
+	Private label3 As System.Windows.Forms.Label
+	Private label4 As System.Windows.Forms.Label
 	Private button5 As System.Windows.Forms.Button
 	Private printDialog1 As System.Windows.Forms.PrintDialog
 	Private printDocument1 As System.Drawing.Printing.PrintDocument

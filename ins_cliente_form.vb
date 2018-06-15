@@ -18,7 +18,7 @@ Public Partial Class ins_cliente_form
 	End Sub
 	
 	Sub Button2Click(sender As Object, e As EventArgs)
-		Me.close		
+		Me.close()	
 	End Sub
 	
 	Sub Button1Click(sender As Object, e As EventArgs)
