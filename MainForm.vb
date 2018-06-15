@@ -235,22 +235,23 @@ Public Partial Class MainForm
 		        Next
 		    Next
 		    
+		    'copiando info
 		    Dim c1 As Excel.Range = CType(xlWorkSheet.Cells(2, 1), Excel.Range)
 		    Dim c2 As Excel.Range = CType(xlWorkSheet.Cells(2 + dt.Rows.Count - 1, dt.Columns.Count), Excel.Range)
 		    Dim range As Excel.Range = xlWorkSheet.Range(c1, c2)
 		    range.Value = arr
-            
+		    
+		    
             xlWorkSheet.Columns.AutoFit()
             
             
 	        xlWorkSheet.SaveAs("C:\Users\user\AM_FACTURACION.xlsx")
-	
 	        xlWorkBook.Close()
 	        xlApp.Quit()
 	
-	        releaseObject(xlApp)
-	        releaseObject(xlWorkBook)
-	        releaseObject(xlWorkSheet)
+	        clean_obj(xlApp)
+	        clean_obj(xlWorkBook)
+	        clean_obj(xlWorkSheet)
 	
 			MsgBox("Base de datos exportada en C:\Users\user\AM_FACTURACION.xlsx")
 	
@@ -264,7 +265,7 @@ Public Partial Class MainForm
 	End Sub
 	
 	
-    Private Sub releaseObject(ByVal obj As Object)
+    Private Sub clean_obj(ByVal obj As Object)
 	    Try
 	        System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
 	        obj = Nothing

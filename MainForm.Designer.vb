@@ -39,6 +39,7 @@ Partial Class MainForm
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.panel1 = New System.Windows.Forms.Panel()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.button5 = New System.Windows.Forms.Button()
 		Me.tx_tel_cliente = New System.Windows.Forms.TextBox()
 		Me.tx_ruc_cliente = New System.Windows.Forms.TextBox()
 		Me.button4 = New System.Windows.Forms.Button()
@@ -48,7 +49,6 @@ Partial Class MainForm
 		Me.panel3 = New System.Windows.Forms.Panel()
 		Me.printDocument1 = New System.Drawing.Printing.PrintDocument()
 		Me.printDialog1 = New System.Windows.Forms.PrintDialog()
-		Me.button5 = New System.Windows.Forms.Button()
 		Me.panel1.SuspendLayout
 		Me.panel2.SuspendLayout
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
@@ -107,7 +107,6 @@ Partial Class MainForm
 		'
 		'panel2
 		'
-		Me.panel2.Controls.Add(Me.button5)
 		Me.panel2.Controls.Add(Me.tx_tel_cliente)
 		Me.panel2.Controls.Add(Me.tx_ruc_cliente)
 		Me.panel2.Controls.Add(Me.button4)
@@ -118,6 +117,16 @@ Partial Class MainForm
 		Me.panel2.Name = "panel2"
 		Me.panel2.Size = New System.Drawing.Size(987, 467)
 		Me.panel2.TabIndex = 5
+		'
+		'button5
+		'
+		Me.button5.Location = New System.Drawing.Point(826, 24)
+		Me.button5.Name = "button5"
+		Me.button5.Size = New System.Drawing.Size(127, 23)
+		Me.button5.TabIndex = 6
+		Me.button5.Text = "Exportar Excel"
+		Me.button5.UseVisualStyleBackColor = true
+		AddHandler Me.button5.Click, AddressOf Me.Button5Click
 		'
 		'tx_tel_cliente
 		'
@@ -185,6 +194,7 @@ Partial Class MainForm
 		'
 		'panel3
 		'
+		Me.panel3.Controls.Add(Me.button5)
 		Me.panel3.Controls.Add(Me.button1)
 		Me.panel3.Controls.Add(Me.label1)
 		Me.panel3.Controls.Add(Me.tx_ticket)
@@ -200,16 +210,6 @@ Partial Class MainForm
 		'printDialog1
 		'
 		Me.printDialog1.UseEXDialog = true
-		'
-		'button5
-		'
-		Me.button5.Location = New System.Drawing.Point(395, 441)
-		Me.button5.Name = "button5"
-		Me.button5.Size = New System.Drawing.Size(127, 23)
-		Me.button5.TabIndex = 6
-		Me.button5.Text = "button5"
-		Me.button5.UseVisualStyleBackColor = true
-		AddHandler Me.button5.Click, AddressOf Me.Button5Click
 		'
 		'MainForm
 		'
