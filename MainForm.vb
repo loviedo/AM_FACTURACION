@@ -13,9 +13,13 @@ Imports System.Drawing.Printing
 Imports Excel = Microsoft.Office.Interop.Excel
 
 Public Partial Class MainForm
-	Public Sub New()
+	
+	Dim centro As String = "AQUI MADRID"
+	Public Sub New(centro1 As String)
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
 		Me.InitializeComponent()
+		Me.centro = centro1
+		Me.button5.Visible = False'ocultamos porque no usamos
 	End Sub
 	
 	Sub Button1Click(sender As Object, e As EventArgs)
@@ -91,6 +95,11 @@ Public Partial Class MainForm
 		   PrintDialog1.Document = PrintDocument1
 		   PrintDialog1.PrinterSettings = PrintDocument1.PrinterSettings
 		   PrintDialog1.AllowSomePages = True
+		   
+		   'http://www.visual-basic-tutorials.com/Tutorials/Controls/PrintPreviewDialog.html
+		   'https://msdn.microsoft.com/en-us/library/system.windows.forms.printpreviewdialog.printpreviewdialog(v=vs.110).aspx
+		   PrintPreviewDialog1.Document = PrintDocument1
+		   PrintPreviewDialog1.ShowDialog()'mostramos el preview de impresion y luego el dialogo de impresion
 		   
 		   If PrintDialog1.ShowDialog = DialogResult.OK Then
 		      PrintDocument1.PrinterSettings = PrintDialog1.PrinterSettings
@@ -272,4 +281,13 @@ Public Partial Class MainForm
 	        GC.Collect()
 	    End Try
     End Sub
+	
+	Sub MainFormLoad(sender As Object, e As EventArgs)
+		'MessageBox.Show(centro)'debug de paso de centro de costo
+		If centro = "AQUI MADRID" then
+			Me.label7.Text = "001-001"
+		Else
+			Me.label7.Text = "002-001"
+		End If
+	End Sub
 End Class

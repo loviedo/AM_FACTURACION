@@ -67,6 +67,10 @@
       <DependentUpon>cliente_form.vb</DependentUpon>
     </Compile>
     <Compile Include="cliente_form.vb" />
+    <Compile Include="form_admin.Designer.vb">
+      <DependentUpon>form_admin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form_admin.vb" />
     <Compile Include="form_exporta.Designer.vb">
       <DependentUpon>form_exporta.vb</DependentUpon>
     </Compile>
@@ -99,6 +103,9 @@
   <ItemGroup>
     <EmbeddedResource Include="cliente_form.resx">
       <DependentUpon>cliente_form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_admin.resx">
+      <DependentUpon>form_admin.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="form_exporta.resx">
       <DependentUpon>form_exporta.vb</DependentUpon>

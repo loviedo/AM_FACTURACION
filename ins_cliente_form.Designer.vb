@@ -37,6 +37,12 @@ Partial Class ins_cliente_form
 		Me.button2 = New System.Windows.Forms.Button()
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.dt_fecnac_c = New System.Windows.Forms.DateTimePicker()
+		Me.label7 = New System.Windows.Forms.Label()
+		Me.tx_dir_c = New System.Windows.Forms.TextBox()
+		Me.label2 = New System.Windows.Forms.Label()
+		Me.label6 = New System.Windows.Forms.Label()
+		Me.tx_email_c = New System.Windows.Forms.TextBox()
 		Me.label1 = New System.Windows.Forms.Label()
 		Me.label4 = New System.Windows.Forms.Label()
 		Me.label3 = New System.Windows.Forms.Label()
@@ -44,12 +50,6 @@ Partial Class ins_cliente_form
 		Me.tx_tel_c = New System.Windows.Forms.TextBox()
 		Me.tx_ruc_c = New System.Windows.Forms.TextBox()
 		Me.tx_nom_c = New System.Windows.Forms.TextBox()
-		Me.label2 = New System.Windows.Forms.Label()
-		Me.label6 = New System.Windows.Forms.Label()
-		Me.tx_email_c = New System.Windows.Forms.TextBox()
-		Me.label7 = New System.Windows.Forms.Label()
-		Me.tx_dir_c = New System.Windows.Forms.TextBox()
-		Me.dt_fecnac_c = New System.Windows.Forms.DateTimePicker()
 		Me.panel1.SuspendLayout
 		Me.panel2.SuspendLayout
 		Me.SuspendLayout
@@ -106,78 +106,41 @@ Partial Class ins_cliente_form
 		Me.panel2.Size = New System.Drawing.Size(588, 349)
 		Me.panel2.TabIndex = 9
 		'
-		'label1
+		'dt_fecnac_c
 		'
-		Me.label1.BackColor = System.Drawing.SystemColors.AppWorkspace
-		Me.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label1.Location = New System.Drawing.Point(12, 8)
-		Me.label1.Name = "label1"
-		Me.label1.Size = New System.Drawing.Size(363, 41)
-		Me.label1.TabIndex = 16
-		Me.label1.Text = "AGREGAR CLIENTE"
-		Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.dt_fecnac_c.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.dt_fecnac_c.Location = New System.Drawing.Point(223, 202)
+		Me.dt_fecnac_c.MinDate = New Date(2016, 1, 1, 0, 0, 0, 0)
+		Me.dt_fecnac_c.Name = "dt_fecnac_c"
+		Me.dt_fecnac_c.Size = New System.Drawing.Size(360, 20)
+		Me.dt_fecnac_c.TabIndex = 24
 		'
-		'label4
+		'label7
 		'
-		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label4.Location = New System.Drawing.Point(93, 133)
-		Me.label4.Name = "label4"
-		Me.label4.Size = New System.Drawing.Size(73, 29)
-		Me.label4.TabIndex = 15
-		Me.label4.Text = "TEL:"
-		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label7.Location = New System.Drawing.Point(68, 237)
+		Me.label7.Name = "label7"
+		Me.label7.Size = New System.Drawing.Size(143, 29)
+		Me.label7.TabIndex = 23
+		Me.label7.Text = "DIRECCION:"
+		Me.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
-		'label3
+		'tx_dir_c
 		'
-		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label3.Location = New System.Drawing.Point(86, 98)
-		Me.label3.Name = "label3"
-		Me.label3.Size = New System.Drawing.Size(80, 29)
-		Me.label3.TabIndex = 14
-		Me.label3.Text = "RUC:"
-		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		'
-		'label5
-		'
-		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label5.Location = New System.Drawing.Point(45, 63)
-		Me.label5.Name = "label5"
-		Me.label5.Size = New System.Drawing.Size(121, 29)
-		Me.label5.TabIndex = 13
-		Me.label5.Text = "CLIENTE:"
-		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		'
-		'tx_tel_c
-		'
-		Me.tx_tel_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_tel_c.Location = New System.Drawing.Point(210, 137)
-		Me.tx_tel_c.Name = "tx_tel_c"
-		Me.tx_tel_c.Size = New System.Drawing.Size(147, 24)
-		Me.tx_tel_c.TabIndex = 10
-		'
-		'tx_ruc_c
-		'
-		Me.tx_ruc_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_ruc_c.Location = New System.Drawing.Point(210, 103)
-		Me.tx_ruc_c.Name = "tx_ruc_c"
-		Me.tx_ruc_c.Size = New System.Drawing.Size(147, 24)
-		Me.tx_ruc_c.TabIndex = 8
-		'
-		'tx_nom_c
-		'
-		Me.tx_nom_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_nom_c.Location = New System.Drawing.Point(210, 63)
-		Me.tx_nom_c.Name = "tx_nom_c"
-		Me.tx_nom_c.Size = New System.Drawing.Size(147, 24)
-		Me.tx_nom_c.TabIndex = 6
+		Me.tx_dir_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_dir_c.Location = New System.Drawing.Point(223, 237)
+		Me.tx_dir_c.Multiline = true
+		Me.tx_dir_c.Name = "tx_dir_c"
+		Me.tx_dir_c.Size = New System.Drawing.Size(360, 49)
+		Me.tx_dir_c.TabIndex = 22
+		Me.tx_dir_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'label2
 		'
 		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
 		Me.label2.Location = New System.Drawing.Point(3, 197)
 		Me.label2.Name = "label2"
-		Me.label2.Size = New System.Drawing.Size(201, 29)
+		Me.label2.Size = New System.Drawing.Size(208, 29)
 		Me.label2.TabIndex = 20
 		Me.label2.Text = "FEC NACIMIENTO:"
 		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -185,7 +148,7 @@ Partial Class ins_cliente_form
 		'label6
 		'
 		Me.label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label6.Location = New System.Drawing.Point(106, 162)
+		Me.label6.Location = New System.Drawing.Point(122, 164)
 		Me.label6.Name = "label6"
 		Me.label6.Size = New System.Drawing.Size(89, 29)
 		Me.label6.TabIndex = 19
@@ -195,38 +158,80 @@ Partial Class ins_cliente_form
 		'tx_email_c
 		'
 		Me.tx_email_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_email_c.Location = New System.Drawing.Point(210, 167)
+		Me.tx_email_c.Location = New System.Drawing.Point(223, 169)
 		Me.tx_email_c.Name = "tx_email_c"
-		Me.tx_email_c.Size = New System.Drawing.Size(147, 24)
+		Me.tx_email_c.Size = New System.Drawing.Size(360, 24)
 		Me.tx_email_c.TabIndex = 17
+		Me.tx_email_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
-		'label7
+		'label1
 		'
-		Me.label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label7.Location = New System.Drawing.Point(77, 233)
-		Me.label7.Name = "label7"
-		Me.label7.Size = New System.Drawing.Size(127, 29)
-		Me.label7.TabIndex = 23
-		Me.label7.Text = "Direccion:"
-		Me.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.label1.BackColor = System.Drawing.SystemColors.AppWorkspace
+		Me.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label1.Location = New System.Drawing.Point(3, 8)
+		Me.label1.Name = "label1"
+		Me.label1.Size = New System.Drawing.Size(580, 41)
+		Me.label1.TabIndex = 16
+		Me.label1.Text = "AGREGAR CLIENTE"
+		Me.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
-		'tx_dir_c
+		'label4
 		'
-		Me.tx_dir_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_dir_c.Location = New System.Drawing.Point(210, 237)
-		Me.tx_dir_c.Multiline = true
-		Me.tx_dir_c.Name = "tx_dir_c"
-		Me.tx_dir_c.Size = New System.Drawing.Size(360, 49)
-		Me.tx_dir_c.TabIndex = 22
+		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label4.Location = New System.Drawing.Point(141, 133)
+		Me.label4.Name = "label4"
+		Me.label4.Size = New System.Drawing.Size(76, 29)
+		Me.label4.TabIndex = 15
+		Me.label4.Text = "TEL:"
+		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
-		'dt_fecnac_c
+		'label3
 		'
-		Me.dt_fecnac_c.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.dt_fecnac_c.Location = New System.Drawing.Point(210, 202)
-		Me.dt_fecnac_c.MinDate = New Date(2016, 1, 1, 0, 0, 0, 0)
-		Me.dt_fecnac_c.Name = "dt_fecnac_c"
-		Me.dt_fecnac_c.Size = New System.Drawing.Size(200, 20)
-		Me.dt_fecnac_c.TabIndex = 24
+		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label3.Location = New System.Drawing.Point(137, 98)
+		Me.label3.Name = "label3"
+		Me.label3.Size = New System.Drawing.Size(74, 29)
+		Me.label3.TabIndex = 14
+		Me.label3.Text = "RUC:"
+		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label5
+		'
+		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label5.Location = New System.Drawing.Point(92, 63)
+		Me.label5.Name = "label5"
+		Me.label5.Size = New System.Drawing.Size(119, 29)
+		Me.label5.TabIndex = 13
+		Me.label5.Text = "CLIENTE:"
+		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'tx_tel_c
+		'
+		Me.tx_tel_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_tel_c.Location = New System.Drawing.Point(223, 137)
+		Me.tx_tel_c.Name = "tx_tel_c"
+		Me.tx_tel_c.Size = New System.Drawing.Size(360, 24)
+		Me.tx_tel_c.TabIndex = 10
+		Me.tx_tel_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
+		'tx_ruc_c
+		'
+		Me.tx_ruc_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_ruc_c.Location = New System.Drawing.Point(223, 103)
+		Me.tx_ruc_c.Name = "tx_ruc_c"
+		Me.tx_ruc_c.Size = New System.Drawing.Size(360, 24)
+		Me.tx_ruc_c.TabIndex = 8
+		Me.tx_ruc_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
+		'tx_nom_c
+		'
+		Me.tx_nom_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_nom_c.Location = New System.Drawing.Point(223, 63)
+		Me.tx_nom_c.Name = "tx_nom_c"
+		Me.tx_nom_c.Size = New System.Drawing.Size(360, 24)
+		Me.tx_nom_c.TabIndex = 6
+		Me.tx_nom_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'ins_cliente_form
 		'
@@ -237,6 +242,7 @@ Partial Class ins_cliente_form
 		Me.Controls.Add(Me.panel1)
 		Me.Name = "ins_cliente_form"
 		Me.Text = "ins_cliente_form"
+		AddHandler Load, AddressOf Me.Ins_cliente_formLoad
 		Me.panel1.ResumeLayout(false)
 		Me.panel2.ResumeLayout(false)
 		Me.panel2.PerformLayout

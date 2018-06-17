@@ -33,12 +33,19 @@ Partial Class MainForm
 	''' not be able to load this method if it was changed manually.
 	''' </summary>
 	Private Sub InitializeComponent()
+		Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
 		Me.button2 = New System.Windows.Forms.Button()
 		Me.tx_ticket = New System.Windows.Forms.TextBox()
 		Me.label1 = New System.Windows.Forms.Label()
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.panel1 = New System.Windows.Forms.Panel()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.panel4 = New System.Windows.Forms.Panel()
+		Me.label8 = New System.Windows.Forms.Label()
+		Me.label7 = New System.Windows.Forms.Label()
+		Me.label6 = New System.Windows.Forms.Label()
+		Me.textBox1 = New System.Windows.Forms.TextBox()
+		Me.label5 = New System.Windows.Forms.Label()
 		Me.label4 = New System.Windows.Forms.Label()
 		Me.label3 = New System.Windows.Forms.Label()
 		Me.label2 = New System.Windows.Forms.Label()
@@ -52,14 +59,12 @@ Partial Class MainForm
 		Me.panel3 = New System.Windows.Forms.Panel()
 		Me.printDocument1 = New System.Drawing.Printing.PrintDocument()
 		Me.printDialog1 = New System.Windows.Forms.PrintDialog()
-		Me.panel4 = New System.Windows.Forms.Panel()
-		Me.label5 = New System.Windows.Forms.Label()
-		Me.textBox1 = New System.Windows.Forms.TextBox()
+		Me.printPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
 		Me.panel1.SuspendLayout
 		Me.panel2.SuspendLayout
+		Me.panel4.SuspendLayout
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
 		Me.panel3.SuspendLayout
-		Me.panel4.SuspendLayout
 		Me.SuspendLayout
 		'
 		'button2
@@ -77,7 +82,7 @@ Partial Class MainForm
 		'tx_ticket
 		'
 		Me.tx_ticket.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.tx_ticket.Location = New System.Drawing.Point(140, 21)
+		Me.tx_ticket.Location = New System.Drawing.Point(156, 21)
 		Me.tx_ticket.Name = "tx_ticket"
 		Me.tx_ticket.Size = New System.Drawing.Size(114, 26)
 		Me.tx_ticket.TabIndex = 0
@@ -86,7 +91,7 @@ Partial Class MainForm
 		'label1
 		'
 		Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label1.Location = New System.Drawing.Point(13, 12)
+		Me.label1.Location = New System.Drawing.Point(17, 12)
 		Me.label1.Name = "label1"
 		Me.label1.Size = New System.Drawing.Size(121, 40)
 		Me.label1.TabIndex = 1
@@ -96,9 +101,9 @@ Partial Class MainForm
 		'button1
 		'
 		Me.button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button1.Location = New System.Drawing.Point(260, 17)
+		Me.button1.Location = New System.Drawing.Point(276, 21)
 		Me.button1.Name = "button1"
-		Me.button1.Size = New System.Drawing.Size(112, 32)
+		Me.button1.Size = New System.Drawing.Size(112, 26)
 		Me.button1.TabIndex = 1
 		Me.button1.Text = "Buscar"
 		Me.button1.UseVisualStyleBackColor = true
@@ -131,6 +136,69 @@ Partial Class MainForm
 		Me.panel2.Name = "panel2"
 		Me.panel2.Size = New System.Drawing.Size(987, 481)
 		Me.panel2.TabIndex = 5
+		'
+		'panel4
+		'
+		Me.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel4.Controls.Add(Me.label8)
+		Me.panel4.Controls.Add(Me.label7)
+		Me.panel4.Controls.Add(Me.label6)
+		Me.panel4.Controls.Add(Me.textBox1)
+		Me.panel4.Controls.Add(Me.label5)
+		Me.panel4.Location = New System.Drawing.Point(616, 14)
+		Me.panel4.Name = "panel4"
+		Me.panel4.Size = New System.Drawing.Size(366, 100)
+		Me.panel4.TabIndex = 9
+		'
+		'label8
+		'
+		Me.label8.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label8.Location = New System.Drawing.Point(209, 54)
+		Me.label8.Name = "label8"
+		Me.label8.Size = New System.Drawing.Size(145, 29)
+		Me.label8.TabIndex = 11
+		Me.label8.Text = "label8"
+		Me.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label7
+		'
+		Me.label7.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label7.Location = New System.Drawing.Point(74, 54)
+		Me.label7.Name = "label7"
+		Me.label7.Size = New System.Drawing.Size(129, 29)
+		Me.label7.TabIndex = 10
+		Me.label7.Text = "label7"
+		Me.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label6
+		'
+		Me.label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label6.Location = New System.Drawing.Point(3, 54)
+		Me.label6.Name = "label6"
+		Me.label6.Size = New System.Drawing.Size(75, 29)
+		Me.label6.TabIndex = 9
+		Me.label6.Text = "NRO:"
+		Me.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'textBox1
+		'
+		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.textBox1.Location = New System.Drawing.Point(209, 12)
+		Me.textBox1.Name = "textBox1"
+		Me.textBox1.ShortcutsEnabled = false
+		Me.textBox1.Size = New System.Drawing.Size(145, 26)
+		Me.textBox1.TabIndex = 8
+		Me.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
+		'label5
+		'
+		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label5.Location = New System.Drawing.Point(3, 10)
+		Me.label5.Name = "label5"
+		Me.label5.Size = New System.Drawing.Size(177, 29)
+		Me.label5.TabIndex = 7
+		Me.label5.Text = "FACTURA NRO:"
+		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
 		'label4
 		'
@@ -200,10 +268,10 @@ Partial Class MainForm
 		Me.dataGridView1.AllowUserToDeleteRows = false
 		Me.dataGridView1.AllowUserToOrderColumns = true
 		Me.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.dataGridView1.Location = New System.Drawing.Point(18, 120)
+		Me.dataGridView1.Location = New System.Drawing.Point(3, 120)
 		Me.dataGridView1.Name = "dataGridView1"
 		Me.dataGridView1.ReadOnly = true
-		Me.dataGridView1.Size = New System.Drawing.Size(953, 312)
+		Me.dataGridView1.Size = New System.Drawing.Size(979, 312)
 		Me.dataGridView1.TabIndex = 3
 		'
 		'button3
@@ -260,35 +328,15 @@ Partial Class MainForm
 		'
 		Me.printDialog1.UseEXDialog = true
 		'
-		'panel4
+		'printPreviewDialog1
 		'
-		Me.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-		Me.panel4.Controls.Add(Me.textBox1)
-		Me.panel4.Controls.Add(Me.label5)
-		Me.panel4.Location = New System.Drawing.Point(616, 14)
-		Me.panel4.Name = "panel4"
-		Me.panel4.Size = New System.Drawing.Size(355, 100)
-		Me.panel4.TabIndex = 9
-		'
-		'label5
-		'
-		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label5.Location = New System.Drawing.Point(16, 10)
-		Me.label5.Name = "label5"
-		Me.label5.Size = New System.Drawing.Size(177, 29)
-		Me.label5.TabIndex = 7
-		Me.label5.Text = "FACTURA NRO:"
-		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		'
-		'textBox1
-		'
-		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox1.Location = New System.Drawing.Point(16, 42)
-		Me.textBox1.Name = "textBox1"
-		Me.textBox1.ShortcutsEnabled = false
-		Me.textBox1.Size = New System.Drawing.Size(321, 26)
-		Me.textBox1.TabIndex = 8
-		Me.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		Me.printPreviewDialog1.AutoScrollMargin = New System.Drawing.Size(0, 0)
+		Me.printPreviewDialog1.AutoScrollMinSize = New System.Drawing.Size(0, 0)
+		Me.printPreviewDialog1.ClientSize = New System.Drawing.Size(400, 300)
+		Me.printPreviewDialog1.Enabled = true
+		Me.printPreviewDialog1.Icon = CType(resources.GetObject("printPreviewDialog1.Icon"),System.Drawing.Icon)
+		Me.printPreviewDialog1.Name = "printPreviewDialog1"
+		Me.printPreviewDialog1.Visible = false
 		'
 		'MainForm
 		'
@@ -300,16 +348,21 @@ Partial Class MainForm
 		Me.Controls.Add(Me.panel1)
 		Me.Name = "MainForm"
 		Me.Text = "AM_FACTURACION"
+		AddHandler Load, AddressOf Me.MainFormLoad
 		Me.panel1.ResumeLayout(false)
 		Me.panel2.ResumeLayout(false)
 		Me.panel2.PerformLayout
+		Me.panel4.ResumeLayout(false)
+		Me.panel4.PerformLayout
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).EndInit
 		Me.panel3.ResumeLayout(false)
 		Me.panel3.PerformLayout
-		Me.panel4.ResumeLayout(false)
-		Me.panel4.PerformLayout
 		Me.ResumeLayout(false)
 	End Sub
+	Private label6 As System.Windows.Forms.Label
+	Private label7 As System.Windows.Forms.Label
+	Private label8 As System.Windows.Forms.Label
+	Private printPreviewDialog1 As System.Windows.Forms.PrintPreviewDialog
 	Private label5 As System.Windows.Forms.Label
 	Private textBox1 As System.Windows.Forms.TextBox
 	Private panel4 As System.Windows.Forms.Panel

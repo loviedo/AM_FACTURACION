@@ -7,6 +7,9 @@
 ' To change this template use Tools | Options | Coding | Edit Standard Headers.
 '
 Public Partial Class form_principal
+	
+	Dim centro As String = "AQUI MADRID"
+	
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
 		Me.InitializeComponent()
@@ -14,6 +17,7 @@ Public Partial Class form_principal
 		'
 		' TODO : Add constructor code after InitializeComponents
 		'
+		label1.Visible = false
 	End Sub
 	
 	
@@ -41,7 +45,7 @@ Public Partial Class form_principal
 	End Sub
 	
 	Sub FacturarToolStripMenuItemClick(sender As Object, e As EventArgs)
-		Dim main As New MainForm()		
+		Dim main As New MainForm(centro)		
 		'main.ShowDialog(Me)'instanciamos el cliente. DEBUG
 		
 		If main.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
@@ -61,5 +65,22 @@ Public Partial Class form_principal
         	'tx_nom_cliente.Text = "Cancelado"
     	End If
     	acerca.Dispose()
+	End Sub
+	
+	Sub AdminToolStripMenuItemClick(sender As Object, e As EventArgs)
+		'mostramos el form de admin del sistema
+		Dim admin As New form_admin()		
+		
+		If admin.ShowDialog(Me) = System.Windows.Forms.DialogResult.OK Then
+			' traemos el contenido
+			'centro =         	
+			centro = admin.comboBox1.SelectedItem.ToString
+			
+    	Else
+        	'tx_nom_cliente.Text = "Cancelado"
+    	End If
+    	admin.Dispose()
+    	'label1.Visible = True'debug
+    	'label1.Text = centro'debug
 	End Sub
 End Class

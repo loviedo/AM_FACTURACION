@@ -35,6 +35,7 @@ Partial Class form_principal
 	Private Sub InitializeComponent()
 		Me.menuStrip1 = New System.Windows.Forms.MenuStrip()
 		Me.aRchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.adminToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.salirToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.facturaciónToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.facturarToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,6 +43,7 @@ Partial Class form_principal
 		Me.listadosToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.acercaDeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
 		Me.programaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+		Me.label1 = New System.Windows.Forms.Label()
 		Me.menuStrip1.SuspendLayout
 		Me.SuspendLayout
 		'
@@ -56,15 +58,22 @@ Partial Class form_principal
 		'
 		'aRchivoToolStripMenuItem
 		'
-		Me.aRchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.salirToolStripMenuItem})
+		Me.aRchivoToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.adminToolStripMenuItem, Me.salirToolStripMenuItem})
 		Me.aRchivoToolStripMenuItem.Name = "aRchivoToolStripMenuItem"
 		Me.aRchivoToolStripMenuItem.Size = New System.Drawing.Size(60, 20)
 		Me.aRchivoToolStripMenuItem.Text = "Archivo"
 		'
+		'adminToolStripMenuItem
+		'
+		Me.adminToolStripMenuItem.Name = "adminToolStripMenuItem"
+		Me.adminToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
+		Me.adminToolStripMenuItem.Text = "Admin"
+		AddHandler Me.adminToolStripMenuItem.Click, AddressOf Me.AdminToolStripMenuItemClick
+		'
 		'salirToolStripMenuItem
 		'
 		Me.salirToolStripMenuItem.Name = "salirToolStripMenuItem"
-		Me.salirToolStripMenuItem.Size = New System.Drawing.Size(96, 22)
+		Me.salirToolStripMenuItem.Size = New System.Drawing.Size(110, 22)
 		Me.salirToolStripMenuItem.Text = "Salir"
 		AddHandler Me.salirToolStripMenuItem.Click, AddressOf Me.SalirToolStripMenuItemClick
 		'
@@ -106,15 +115,24 @@ Partial Class form_principal
 		'programaToolStripMenuItem
 		'
 		Me.programaToolStripMenuItem.Name = "programaToolStripMenuItem"
-		Me.programaToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+		Me.programaToolStripMenuItem.Size = New System.Drawing.Size(126, 22)
 		Me.programaToolStripMenuItem.Text = "Programa"
 		AddHandler Me.programaToolStripMenuItem.Click, AddressOf Me.ProgramaToolStripMenuItemClick
+		'
+		'label1
+		'
+		Me.label1.Location = New System.Drawing.Point(12, 51)
+		Me.label1.Name = "label1"
+		Me.label1.Size = New System.Drawing.Size(328, 35)
+		Me.label1.TabIndex = 1
+		Me.label1.Text = "label1"
 		'
 		'form_principal
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(1177, 595)
+		Me.Controls.Add(Me.label1)
 		Me.Controls.Add(Me.menuStrip1)
 		Me.MainMenuStrip = Me.menuStrip1
 		Me.Name = "form_principal"
@@ -125,6 +143,8 @@ Partial Class form_principal
 		Me.ResumeLayout(false)
 		Me.PerformLayout
 	End Sub
+	Private label1 As System.Windows.Forms.Label
+	Private adminToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Private programaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Private acercaDeToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 	Private listadosToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem

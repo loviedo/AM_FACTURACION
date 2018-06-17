@@ -33,31 +33,35 @@ Partial Class form_exporta
 	''' not be able to load this method if it was changed manually.
 	''' </summary>
 	Private Sub InitializeComponent()
-		Me.tabControl1 = New System.Windows.Forms.TabControl()
+		Me.Facturacion = New System.Windows.Forms.TabControl()
 		Me.tabPage1 = New System.Windows.Forms.TabPage()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.label2 = New System.Windows.Forms.Label()
+		Me.label1 = New System.Windows.Forms.Label()
 		Me.fec_hasta = New System.Windows.Forms.DateTimePicker()
 		Me.fec_desde = New System.Windows.Forms.DateTimePicker()
 		Me.panel1 = New System.Windows.Forms.Panel()
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.tabPage2 = New System.Windows.Forms.TabPage()
-		Me.label1 = New System.Windows.Forms.Label()
-		Me.label2 = New System.Windows.Forms.Label()
-		Me.tabControl1.SuspendLayout
+		Me.panel3 = New System.Windows.Forms.Panel()
+		Me.button2 = New System.Windows.Forms.Button()
+		Me.Facturacion.SuspendLayout
 		Me.tabPage1.SuspendLayout
 		Me.panel2.SuspendLayout
 		Me.panel1.SuspendLayout
+		Me.tabPage2.SuspendLayout
+		Me.panel3.SuspendLayout
 		Me.SuspendLayout
 		'
-		'tabControl1
+		'Facturacion
 		'
-		Me.tabControl1.Controls.Add(Me.tabPage1)
-		Me.tabControl1.Controls.Add(Me.tabPage2)
-		Me.tabControl1.Location = New System.Drawing.Point(12, 12)
-		Me.tabControl1.Name = "tabControl1"
-		Me.tabControl1.SelectedIndex = 0
-		Me.tabControl1.Size = New System.Drawing.Size(562, 440)
-		Me.tabControl1.TabIndex = 4
+		Me.Facturacion.Controls.Add(Me.tabPage1)
+		Me.Facturacion.Controls.Add(Me.tabPage2)
+		Me.Facturacion.Location = New System.Drawing.Point(12, 12)
+		Me.Facturacion.Name = "Facturacion"
+		Me.Facturacion.SelectedIndex = 0
+		Me.Facturacion.Size = New System.Drawing.Size(562, 440)
+		Me.Facturacion.TabIndex = 4
 		'
 		'tabPage1
 		'
@@ -83,6 +87,22 @@ Partial Class form_exporta
 		Me.panel2.Size = New System.Drawing.Size(542, 176)
 		Me.panel2.TabIndex = 5
 		'
+		'label2
+		'
+		Me.label2.Location = New System.Drawing.Point(79, 101)
+		Me.label2.Name = "label2"
+		Me.label2.Size = New System.Drawing.Size(100, 23)
+		Me.label2.TabIndex = 3
+		Me.label2.Text = "Fecha Hasta:"
+		'
+		'label1
+		'
+		Me.label1.Location = New System.Drawing.Point(79, 36)
+		Me.label1.Name = "label1"
+		Me.label1.Size = New System.Drawing.Size(100, 23)
+		Me.label1.TabIndex = 2
+		Me.label1.Text = "Fecha Desde:"
+		'
 		'fec_hasta
 		'
 		Me.fec_hasta.Location = New System.Drawing.Point(228, 95)
@@ -96,6 +116,7 @@ Partial Class form_exporta
 		Me.fec_desde.Name = "fec_desde"
 		Me.fec_desde.Size = New System.Drawing.Size(200, 20)
 		Me.fec_desde.TabIndex = 0
+		Me.fec_desde.Value = New Date(2018, 6, 11, 0, 0, 0, 0)
 		'
 		'panel1
 		'
@@ -120,6 +141,7 @@ Partial Class form_exporta
 		'
 		'tabPage2
 		'
+		Me.tabPage2.Controls.Add(Me.panel3)
 		Me.tabPage2.Location = New System.Drawing.Point(4, 22)
 		Me.tabPage2.Name = "tabPage2"
 		Me.tabPage2.Padding = New System.Windows.Forms.Padding(3)
@@ -128,43 +150,53 @@ Partial Class form_exporta
 		Me.tabPage2.Text = "tabPage2"
 		Me.tabPage2.UseVisualStyleBackColor = true
 		'
-		'label1
+		'panel3
 		'
-		Me.label1.Location = New System.Drawing.Point(79, 36)
-		Me.label1.Name = "label1"
-		Me.label1.Size = New System.Drawing.Size(100, 23)
-		Me.label1.TabIndex = 2
-		Me.label1.Text = "Fecha Desde:"
+		Me.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel3.Controls.Add(Me.button2)
+		Me.panel3.Cursor = System.Windows.Forms.Cursors.Default
+		Me.panel3.Location = New System.Drawing.Point(6, 173)
+		Me.panel3.Name = "panel3"
+		Me.panel3.Size = New System.Drawing.Size(542, 68)
+		Me.panel3.TabIndex = 5
 		'
-		'label2
+		'button2
 		'
-		Me.label2.Location = New System.Drawing.Point(79, 101)
-		Me.label2.Name = "label2"
-		Me.label2.Size = New System.Drawing.Size(100, 23)
-		Me.label2.TabIndex = 3
-		Me.label2.Text = "Fecha Hasta:"
+		Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.button2.Location = New System.Drawing.Point(158, 20)
+		Me.button2.Name = "button2"
+		Me.button2.Size = New System.Drawing.Size(268, 43)
+		Me.button2.TabIndex = 1
+		Me.button2.Text = "Exportar Listado de Clientes"
+		Me.button2.UseVisualStyleBackColor = true
+		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
 		'form_exporta
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
 		Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
 		Me.ClientSize = New System.Drawing.Size(586, 464)
-		Me.Controls.Add(Me.tabControl1)
+		Me.Controls.Add(Me.Facturacion)
 		Me.Name = "form_exporta"
 		Me.Text = "form_exporta"
-		Me.tabControl1.ResumeLayout(false)
+		AddHandler Load, AddressOf Me.Form_exportaLoad
+		Me.Facturacion.ResumeLayout(false)
 		Me.tabPage1.ResumeLayout(false)
 		Me.panel2.ResumeLayout(false)
 		Me.panel1.ResumeLayout(false)
+		Me.tabPage2.ResumeLayout(false)
+		Me.panel3.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Private button2 As System.Windows.Forms.Button
+	Private panel3 As System.Windows.Forms.Panel
 	Private label1 As System.Windows.Forms.Label
 	Private label2 As System.Windows.Forms.Label
 	Private tabPage2 As System.Windows.Forms.TabPage
 	Private fec_desde As System.Windows.Forms.DateTimePicker
 	Private fec_hasta As System.Windows.Forms.DateTimePicker
 	Private tabPage1 As System.Windows.Forms.TabPage
-	Private tabControl1 As System.Windows.Forms.TabControl
+	Private Facturacion As System.Windows.Forms.TabControl
 	Private panel2 As System.Windows.Forms.Panel
 	Private panel1 As System.Windows.Forms.Panel
 	Private button1 As System.Windows.Forms.Button

@@ -57,4 +57,12 @@ Public Partial Class ins_cliente_form
 		
 
 	End Sub
+	
+	Sub Ins_cliente_formLoad(sender As Object, e As EventArgs)
+		'establecemos el formato de la fecha.
+		dt_fecnac_c.Format = DateTimePickerFormat.Custom
+    	dt_fecnac_c.CustomFormat = "MM/dd/yy"
+
+		
+	End Sub
 End Class

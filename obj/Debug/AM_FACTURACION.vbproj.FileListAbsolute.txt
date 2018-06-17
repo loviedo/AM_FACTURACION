@@ -10,3 +10,4 @@ C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\
 C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_principal.resources
 C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_help.resources
 C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_exporta.resources
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_admin.resources
