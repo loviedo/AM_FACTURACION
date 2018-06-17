@@ -39,6 +39,9 @@ Partial Class MainForm
 		Me.button1 = New System.Windows.Forms.Button()
 		Me.panel1 = New System.Windows.Forms.Panel()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.label4 = New System.Windows.Forms.Label()
+		Me.label3 = New System.Windows.Forms.Label()
+		Me.label2 = New System.Windows.Forms.Label()
 		Me.tx_tel_cliente = New System.Windows.Forms.TextBox()
 		Me.tx_ruc_cliente = New System.Windows.Forms.TextBox()
 		Me.button4 = New System.Windows.Forms.Button()
@@ -49,13 +52,14 @@ Partial Class MainForm
 		Me.panel3 = New System.Windows.Forms.Panel()
 		Me.printDocument1 = New System.Drawing.Printing.PrintDocument()
 		Me.printDialog1 = New System.Windows.Forms.PrintDialog()
-		Me.label2 = New System.Windows.Forms.Label()
-		Me.label3 = New System.Windows.Forms.Label()
-		Me.label4 = New System.Windows.Forms.Label()
+		Me.panel4 = New System.Windows.Forms.Panel()
+		Me.label5 = New System.Windows.Forms.Label()
+		Me.textBox1 = New System.Windows.Forms.TextBox()
 		Me.panel1.SuspendLayout
 		Me.panel2.SuspendLayout
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
 		Me.panel3.SuspendLayout
+		Me.panel4.SuspendLayout
 		Me.SuspendLayout
 		'
 		'button2
@@ -66,7 +70,7 @@ Partial Class MainForm
 		Me.button2.Name = "button2"
 		Me.button2.Size = New System.Drawing.Size(125, 44)
 		Me.button2.TabIndex = 2
-		Me.button2.Text = "SALIR"
+		Me.button2.Text = "Cerrar"
 		Me.button2.UseVisualStyleBackColor = false
 		AddHandler Me.button2.Click, AddressOf Me.Button2Click
 		'
@@ -113,6 +117,7 @@ Partial Class MainForm
 		'panel2
 		'
 		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel2.Controls.Add(Me.panel4)
 		Me.panel2.Controls.Add(Me.label4)
 		Me.panel2.Controls.Add(Me.label3)
 		Me.panel2.Controls.Add(Me.label2)
@@ -127,13 +132,43 @@ Partial Class MainForm
 		Me.panel2.Size = New System.Drawing.Size(987, 481)
 		Me.panel2.TabIndex = 5
 		'
+		'label4
+		'
+		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label4.Location = New System.Drawing.Point(65, 83)
+		Me.label4.Name = "label4"
+		Me.label4.Size = New System.Drawing.Size(73, 29)
+		Me.label4.TabIndex = 8
+		Me.label4.Text = "TEL:"
+		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label3
+		'
+		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label3.Location = New System.Drawing.Point(58, 48)
+		Me.label3.Name = "label3"
+		Me.label3.Size = New System.Drawing.Size(80, 29)
+		Me.label3.TabIndex = 7
+		Me.label3.Text = "RUC:"
+		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label2
+		'
+		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label2.Location = New System.Drawing.Point(17, 13)
+		Me.label2.Name = "label2"
+		Me.label2.Size = New System.Drawing.Size(121, 29)
+		Me.label2.TabIndex = 6
+		Me.label2.Text = "CLIENTE:"
+		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
 		'tx_tel_cliente
 		'
 		Me.tx_tel_cliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
 		Me.tx_tel_cliente.Location = New System.Drawing.Point(156, 83)
 		Me.tx_tel_cliente.Multiline = true
 		Me.tx_tel_cliente.Name = "tx_tel_cliente"
-		Me.tx_tel_cliente.Size = New System.Drawing.Size(337, 29)
+		Me.tx_tel_cliente.Size = New System.Drawing.Size(321, 29)
 		Me.tx_tel_cliente.TabIndex = 5
 		Me.tx_tel_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
@@ -143,7 +178,7 @@ Partial Class MainForm
 		Me.tx_ruc_cliente.Location = New System.Drawing.Point(156, 48)
 		Me.tx_ruc_cliente.Multiline = true
 		Me.tx_ruc_cliente.Name = "tx_ruc_cliente"
-		Me.tx_ruc_cliente.Size = New System.Drawing.Size(337, 29)
+		Me.tx_ruc_cliente.Size = New System.Drawing.Size(321, 29)
 		Me.tx_ruc_cliente.TabIndex = 4
 		Me.tx_ruc_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
@@ -176,9 +211,9 @@ Partial Class MainForm
 		Me.button3.BackColor = System.Drawing.SystemColors.ScrollBar
 		Me.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
 		Me.button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button3.Location = New System.Drawing.Point(499, 13)
+		Me.button3.Location = New System.Drawing.Point(483, 14)
 		Me.button3.Name = "button3"
-		Me.button3.Size = New System.Drawing.Size(184, 101)
+		Me.button3.Size = New System.Drawing.Size(127, 101)
 		Me.button3.TabIndex = 2
 		Me.button3.Text = "Buscar Cliente"
 		Me.button3.UseVisualStyleBackColor = false
@@ -190,7 +225,7 @@ Partial Class MainForm
 		Me.tx_nom_cliente.Location = New System.Drawing.Point(156, 13)
 		Me.tx_nom_cliente.Multiline = true
 		Me.tx_nom_cliente.Name = "tx_nom_cliente"
-		Me.tx_nom_cliente.Size = New System.Drawing.Size(337, 29)
+		Me.tx_nom_cliente.Size = New System.Drawing.Size(321, 29)
 		Me.tx_nom_cliente.TabIndex = 1
 		Me.tx_nom_cliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
@@ -225,35 +260,35 @@ Partial Class MainForm
 		'
 		Me.printDialog1.UseEXDialog = true
 		'
-		'label2
+		'panel4
 		'
-		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label2.Location = New System.Drawing.Point(17, 13)
-		Me.label2.Name = "label2"
-		Me.label2.Size = New System.Drawing.Size(121, 29)
-		Me.label2.TabIndex = 6
-		Me.label2.Text = "CLIENTE:"
-		Me.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel4.Controls.Add(Me.textBox1)
+		Me.panel4.Controls.Add(Me.label5)
+		Me.panel4.Location = New System.Drawing.Point(616, 14)
+		Me.panel4.Name = "panel4"
+		Me.panel4.Size = New System.Drawing.Size(355, 100)
+		Me.panel4.TabIndex = 9
 		'
-		'label3
+		'label5
 		'
-		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label3.Location = New System.Drawing.Point(58, 48)
-		Me.label3.Name = "label3"
-		Me.label3.Size = New System.Drawing.Size(80, 29)
-		Me.label3.TabIndex = 7
-		Me.label3.Text = "RUC:"
-		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label5.Location = New System.Drawing.Point(16, 10)
+		Me.label5.Name = "label5"
+		Me.label5.Size = New System.Drawing.Size(177, 29)
+		Me.label5.TabIndex = 7
+		Me.label5.Text = "FACTURA NRO:"
+		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
 		'
-		'label4
+		'textBox1
 		'
-		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label4.Location = New System.Drawing.Point(65, 83)
-		Me.label4.Name = "label4"
-		Me.label4.Size = New System.Drawing.Size(73, 29)
-		Me.label4.TabIndex = 8
-		Me.label4.Text = "TEL:"
-		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.textBox1.Location = New System.Drawing.Point(16, 42)
+		Me.textBox1.Name = "textBox1"
+		Me.textBox1.ShortcutsEnabled = false
+		Me.textBox1.Size = New System.Drawing.Size(321, 26)
+		Me.textBox1.TabIndex = 8
+		Me.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		'
 		'MainForm
 		'
@@ -271,8 +306,13 @@ Partial Class MainForm
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).EndInit
 		Me.panel3.ResumeLayout(false)
 		Me.panel3.PerformLayout
+		Me.panel4.ResumeLayout(false)
+		Me.panel4.PerformLayout
 		Me.ResumeLayout(false)
 	End Sub
+	Private label5 As System.Windows.Forms.Label
+	Private textBox1 As System.Windows.Forms.TextBox
+	Private panel4 As System.Windows.Forms.Panel
 	Private label2 As System.Windows.Forms.Label
 	Private label3 As System.Windows.Forms.Label
 	Private label4 As System.Windows.Forms.Label

@@ -7,3 +7,6 @@ C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\
 C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.vbproj.GenerateResource.Cache
 C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.cliente_form.resources
 C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.ins_cliente_form.resources
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_principal.resources
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_help.resources
+C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_exporta.resources

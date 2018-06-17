@@ -12,6 +12,9 @@
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <OptionInfer>On</OptionInfer>
+    <StartupObject>AM_FACTURACION.My.MyApplication</StartupObject>
+    <NoWin32Manifest>False</NoWin32Manifest>
+    <StartAction>Project</StartAction>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -64,6 +67,18 @@
       <DependentUpon>cliente_form.vb</DependentUpon>
     </Compile>
     <Compile Include="cliente_form.vb" />
+    <Compile Include="form_exporta.Designer.vb">
+      <DependentUpon>form_exporta.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form_exporta.vb" />
+    <Compile Include="form_help.Designer.vb">
+      <DependentUpon>form_help.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form_help.vb" />
+    <Compile Include="form_principal.Designer.vb">
+      <DependentUpon>form_principal.vb</DependentUpon>
+    </Compile>
+    <Compile Include="form_principal.vb" />
     <Compile Include="ins_cliente_form.Designer.vb">
       <DependentUpon>ins_cliente_form.vb</DependentUpon>
     </Compile>
@@ -84,6 +99,15 @@
   <ItemGroup>
     <EmbeddedResource Include="cliente_form.resx">
       <DependentUpon>cliente_form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_exporta.resx">
+      <DependentUpon>form_exporta.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_help.resx">
+      <DependentUpon>form_help.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_principal.resx">
+      <DependentUpon>form_principal.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ins_cliente_form.resx">
       <DependentUpon>ins_cliente_form.vb</DependentUpon>
