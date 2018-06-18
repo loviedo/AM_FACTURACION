@@ -60,6 +60,7 @@ Partial Class MainForm
 		Me.printDocument1 = New System.Drawing.Printing.PrintDocument()
 		Me.printDialog1 = New System.Windows.Forms.PrintDialog()
 		Me.printPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
+		Me.button6 = New System.Windows.Forms.Button()
 		Me.panel1.SuspendLayout
 		Me.panel2.SuspendLayout
 		Me.panel4.SuspendLayout
@@ -189,6 +190,8 @@ Partial Class MainForm
 		Me.textBox1.Size = New System.Drawing.Size(145, 26)
 		Me.textBox1.TabIndex = 8
 		Me.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		AddHandler Me.textBox1.TextChanged, AddressOf Me.TextBox1TextChanged
+		AddHandler Me.textBox1.KeyPress, AddressOf Me.TextBox1KeyPress
 		'
 		'label5
 		'
@@ -311,6 +314,7 @@ Partial Class MainForm
 		'panel3
 		'
 		Me.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel3.Controls.Add(Me.button6)
 		Me.panel3.Controls.Add(Me.button5)
 		Me.panel3.Controls.Add(Me.button1)
 		Me.panel3.Controls.Add(Me.label1)
@@ -338,6 +342,16 @@ Partial Class MainForm
 		Me.printPreviewDialog1.Name = "printPreviewDialog1"
 		Me.printPreviewDialog1.Visible = false
 		'
+		'button6
+		'
+		Me.button6.Location = New System.Drawing.Point(578, 15)
+		Me.button6.Name = "button6"
+		Me.button6.Size = New System.Drawing.Size(75, 23)
+		Me.button6.TabIndex = 7
+		Me.button6.Text = "button6"
+		Me.button6.UseVisualStyleBackColor = true
+		AddHandler Me.button6.Click, AddressOf Me.Button6Click
+		'
 		'MainForm
 		'
 		Me.AutoScaleDimensions = New System.Drawing.SizeF(6!, 13!)
@@ -359,12 +373,13 @@ Partial Class MainForm
 		Me.panel3.PerformLayout
 		Me.ResumeLayout(false)
 	End Sub
+	Private button6 As System.Windows.Forms.Button
 	Private label6 As System.Windows.Forms.Label
 	Private label7 As System.Windows.Forms.Label
 	Private label8 As System.Windows.Forms.Label
 	Private printPreviewDialog1 As System.Windows.Forms.PrintPreviewDialog
 	Private label5 As System.Windows.Forms.Label
-	Private textBox1 As System.Windows.Forms.TextBox
+	Private WithEvents textBox1 As System.Windows.Forms.TextBox'modificado withevens luis oviedo
 	Private panel4 As System.Windows.Forms.Panel
 	Private label2 As System.Windows.Forms.Label
 	Private label3 As System.Windows.Forms.Label
