@@ -440,11 +440,11 @@ End Sub
             If (centena = 0) And (decena = 0) And (unidad = 1) And unidadmil = 2 Then
                 cadena = "un"
             End If
-            cadena = cadena & " " & agregado(unidadmil)
+            cadena = cadena & " " & agregado(unidadmil) 
         End If
  
         ' Cargo la función
-        Return cadena.Trim
+        Return cadena.Trim '& " Guaraníes"
     End Function
  
     ' Esta función recibe una cadena de caracteres y la devuelve "invertida".
