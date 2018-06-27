@@ -53,14 +53,15 @@ Partial Class MainForm
 		Me.tx_ruc_cliente = New System.Windows.Forms.TextBox()
 		Me.button4 = New System.Windows.Forms.Button()
 		Me.dataGridView1 = New System.Windows.Forms.DataGridView()
+		Me.checito = New System.Windows.Forms.DataGridViewCheckBoxColumn()
 		Me.button3 = New System.Windows.Forms.Button()
 		Me.tx_nom_cliente = New System.Windows.Forms.TextBox()
 		Me.button5 = New System.Windows.Forms.Button()
 		Me.panel3 = New System.Windows.Forms.Panel()
+		Me.button6 = New System.Windows.Forms.Button()
 		Me.printDocument1 = New System.Drawing.Printing.PrintDocument()
 		Me.printDialog1 = New System.Windows.Forms.PrintDialog()
 		Me.printPreviewDialog1 = New System.Windows.Forms.PrintPreviewDialog()
-		Me.button6 = New System.Windows.Forms.Button()
 		Me.panel1.SuspendLayout
 		Me.panel2.SuspendLayout
 		Me.panel4.SuspendLayout
@@ -271,11 +272,18 @@ Partial Class MainForm
 		Me.dataGridView1.AllowUserToDeleteRows = false
 		Me.dataGridView1.AllowUserToOrderColumns = true
 		Me.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+		Me.dataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.checito})
 		Me.dataGridView1.Location = New System.Drawing.Point(3, 120)
 		Me.dataGridView1.Name = "dataGridView1"
-		Me.dataGridView1.ReadOnly = true
 		Me.dataGridView1.Size = New System.Drawing.Size(979, 312)
 		Me.dataGridView1.TabIndex = 3
+		AddHandler Me.dataGridView1.CellContentClick, AddressOf Me.DataGridView1CellContentClick
+		'
+		'checito
+		'
+		Me.checito.HeaderText = "Seleccionar"
+		Me.checito.Name = "checito"
+		Me.checito.ToolTipText = "Chequear para seleccionar item"
 		'
 		'button3
 		'
@@ -324,6 +332,16 @@ Partial Class MainForm
 		Me.panel3.Size = New System.Drawing.Size(987, 66)
 		Me.panel3.TabIndex = 6
 		'
+		'button6
+		'
+		Me.button6.Location = New System.Drawing.Point(578, 15)
+		Me.button6.Name = "button6"
+		Me.button6.Size = New System.Drawing.Size(75, 23)
+		Me.button6.TabIndex = 7
+		Me.button6.Text = "button6"
+		Me.button6.UseVisualStyleBackColor = true
+		AddHandler Me.button6.Click, AddressOf Me.Button6Click
+		'
 		'printDocument1
 		'
 		AddHandler Me.printDocument1.PrintPage, AddressOf Me.PrintDocument1PrintPage
@@ -341,16 +359,6 @@ Partial Class MainForm
 		Me.printPreviewDialog1.Icon = CType(resources.GetObject("printPreviewDialog1.Icon"),System.Drawing.Icon)
 		Me.printPreviewDialog1.Name = "printPreviewDialog1"
 		Me.printPreviewDialog1.Visible = false
-		'
-		'button6
-		'
-		Me.button6.Location = New System.Drawing.Point(578, 15)
-		Me.button6.Name = "button6"
-		Me.button6.Size = New System.Drawing.Size(75, 23)
-		Me.button6.TabIndex = 7
-		Me.button6.Text = "button6"
-		Me.button6.UseVisualStyleBackColor = true
-		AddHandler Me.button6.Click, AddressOf Me.Button6Click
 		'
 		'MainForm
 		'
@@ -373,6 +381,7 @@ Partial Class MainForm
 		Me.panel3.PerformLayout
 		Me.ResumeLayout(false)
 	End Sub
+	Private checito As System.Windows.Forms.DataGridViewCheckBoxColumn
 	Private button6 As System.Windows.Forms.Button
 	Private label6 As System.Windows.Forms.Label
 	Private label7 As System.Windows.Forms.Label

@@ -24,10 +24,9 @@ Public Partial Class MainForm
 		Me.label8.Text = ""
 	End Sub
 	
-	Sub Button1Click(sender As Object, e As EventArgs)
-		
+	Sub Button1Click(sender As Object, e As EventArgs)		
 		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
-		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\user\Desktop\SambaData2.sdf")
+		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
 		
 		Dim consulta As String = "Select Id, TicketId, MenuItemId, MenuItemName, PortionName, CurrencyCode, Quantity, PortionCount, OrderNumber, CreatingUserId, " & _
 			"CreatedDateTime, ModifiedDateTime, Price from TicketItems where TicketId = " & tx_ticket.Text.Trim
@@ -57,14 +56,18 @@ Public Partial Class MainForm
 			DataGridView1.DataSource = dt
 			DataGridView1.Refresh
 		    
-		    
+		    Dim cell As DataGridViewCheckBoxCell
+			For Each row As DataGridViewRow In DataGridView1.Rows
+				row.Cells(0).Value= true
+			Next
 		    
 		    
 		Catch ex As Exception
 			MessageBox.Show(ex.Message.ToString)
 		Finally
-		    conn.Close()
+			conn.Close()
 		End Try
+		
 	End Sub
 	
 	Sub Button2Click(sender As Object, e As EventArgs)
@@ -92,39 +95,56 @@ Public Partial Class MainForm
 	End Sub
 	
 	Sub Button4Click(sender As Object, e As EventArgs)
+		Dim cell As DataGridViewCheckBoxCell
+		
+		'aqui juntamos las filas chequeadas y los datos a imprimirse.
+		For Each row As DataGridViewRow In DataGridView1.Rows
+			cell = row.Cells(0)
+			If cell.Value = True Then
+				'MessageBox.Show(cell.Value.ToString & " : " & row.Index.ToString)'debug
+				
+			End If
+        Next
+		
+
 		
 		'imprimos el PDF, mandamos a la impresora
-		   PrintDialog1.Document = PrintDocument1
-		   PrintDialog1.PrinterSettings = PrintDocument1.PrinterSettings
-		   PrintDialog1.AllowSomePages = True
-		   
-		   'http://www.visual-basic-tutorials.com/Tutorials/Controls/PrintPreviewDialog.html
-		   'https://msdn.microsoft.com/en-us/library/system.windows.forms.printpreviewdialog.printpreviewdialog(v=vs.110).aspx
-		   PrintPreviewDialog1.Document = PrintDocument1
-		   PrintPreviewDialog1.ShowDialog()'mostramos el preview de impresion y luego el dialogo de impresion
-		   
-		   If PrintDialog1.ShowDialog = DialogResult.OK Then
-		      PrintDocument1.PrinterSettings = PrintDialog1.PrinterSettings
-		      PrintDocument1.Print()
-		   End If
-		   
-		   'AQUI GUARDAMOS LOS DATOS DE LA FACTURA IMPRESA
+		PrintDialog1.Document = PrintDocument1
+		PrintDialog1.PrinterSettings = PrintDocument1.PrinterSettings
+		PrintDialog1.AllowSomePages = True
+		
+		'http://www.visual-basic-tutorials.com/Tutorials/Controls/PrintPreviewDialog.html
+		'https://msdn.microsoft.com/en-us/library/system.windows.forms.printpreviewdialog.printpreviewdialog(v=vs.110).aspx
+		PrintPreviewDialog1.Document = PrintDocument1
+		PrintPreviewDialog1.ShowDialog()'mostramos el preview de impresion y luego el dialogo de impresion
+		
+		If PrintDialog1.ShowDialog = DialogResult.OK Then
+		  PrintDocument1.PrinterSettings = PrintDialog1.PrinterSettings
+		  PrintDocument1.Print()
+		End If
+		
+		'AQUI GUARDAMOS LOS DATOS DE LA FACTURA IMPRESA
 		   
 		   
 	End Sub
 	
 	Sub PrintDocument1PrintPage(sender As Object, e As PrintPageEventArgs)
 		Static currentChar As Integer
-       Static currentLine As Integer
-       Dim textfont As Font = tx_nom_cliente.Font
-       Dim h, w As Integer
-       Dim left, top As Integer
+		Static currentLine As Integer
+		Dim textfont As Font = tx_nom_cliente.Font
+		Dim h, w As Integer
+		Dim left, top As Integer
+		
+		
+       
        With PrintDocument1.DefaultPageSettings
            h = .PaperSize.Height - .Margins.Top - .Margins.Bottom
            w = .PaperSize.Width - .Margins.Left - .Margins.Right
            left = PrintDocument1.DefaultPageSettings.Margins.Left
            top = PrintDocument1.DefaultPageSettings.Margins.Top
        End With
+       
+       
        e.Graphics.DrawRectangle(Pens.Blue, New Rectangle(left, top, w, h))
        If PrintDocument1.DefaultPageSettings.Landscape Then
            Dim a As Integer
@@ -132,6 +152,7 @@ Public Partial Class MainForm
            h = w
            w = a
        End If
+       
        Dim lines As Integer = CInt(Math.Round(h / textfont.Height))
        Dim b As New Rectangle(left, top, w, h)
        Dim format As StringFormat
@@ -485,4 +506,12 @@ End Sub
         Return cadena
     End Function
 	
+	Sub DataGridView1CellContentClick(sender As Object, e As DataGridViewCellEventArgs)
+		'MessageBox.Show(DataGridView1.Columns(e.ColumnIndex).Name.ToString)'debug
+		'el nombre del item columna
+		if DataGridView1.Columns(e.ColumnIndex).Name = "checito" Then
+			' Your code
+			'MessageBox.Show("clickeado")'debug
+		End If		
+	End Sub
 End Class

@@ -28,7 +28,7 @@ Public Partial Class form_exporta
 		'Traemos todos los valores para crear un excel
 		
 		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
-		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\user\Desktop\SambaData2.sdf")
+		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
 		
 		Dim consulta As String = "Select TicketId, MenuItemId, MenuItemName, Price, Quantity, OrderNumber, CreatedDateTime, ModifiedDAteTime from TicketItems where CreatedDateTime >= cast('" & fec_desde.Text & " 00:00' as datetime) and CreatedDateTime <= cast('" & fec_hasta.Text & " 23:59' as datetime)"
 		
@@ -146,7 +146,7 @@ Public Partial Class form_exporta
 		'Traemos todos los valores para crear un excel
 		
 		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
-		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\user\Desktop\SambaData2.sdf")
+		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
 		
 		Dim consulta As String = "Select * from Clientes"
 	
