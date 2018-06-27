@@ -26,7 +26,7 @@ Public Partial Class form_admin
 	End Sub
 	
 	Sub Button2Click(sender As Object, e As EventArgs)
-		Me.DialogResult = Windows.Forms.DialogResult.OK
+		Me.DialogResult = System.Windows.Forms.DialogResult.OK
 		
 	End Sub
 End Class

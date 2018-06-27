@@ -11,3 +11,16 @@ C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\
 C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_help.resources
 C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_exporta.resources
 C:\Users\user\Documents\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_admin.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.vbprojResolveAssemblyReference.cache
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.cliente_form.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_admin.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_exporta.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_help.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.form_principal.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.ins_cliente_form.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.MainForm.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.vbproj.GenerateResource.Cache
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.exe
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Debug\AM_FACTURACION.pdb
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\bin\Debug\AM_FACTURACION.exe
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\bin\Debug\AM_FACTURACION.pdb

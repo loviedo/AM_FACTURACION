@@ -10,11 +10,9 @@
 Imports System.Data
 Imports System.Data.SqlClient
 
-
-
 Public Partial Class cliente_form
 	
-	Private conn as New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\user\Desktop\SambaData2.sdf")
+	Private conn as New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\luis\Desktop\SambaData2.sdf")
 	
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
@@ -82,7 +80,7 @@ Public Partial Class cliente_form
 	
 	Sub Button2Click(sender As Object, e As EventArgs)
         ' Set the result to pass back to the form that called this dialog
-        Me.DialogResult = Windows.Forms.DialogResult.OK	
+        Me.DialogResult = System.Windows.Forms.DialogResult.OK	
         
 	End Sub
 	
@@ -147,7 +145,7 @@ Public Partial Class cliente_form
 	
 	
 	Sub Button3Click(sender As Object, e As EventArgs)
-		Me.DialogResult = Windows.Forms.DialogResult.Cancel
+		Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
 		Me.Close()		
 	End Sub
 End Class
