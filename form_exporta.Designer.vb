@@ -36,6 +36,9 @@ Partial Class form_exporta
 		Me.Facturacion = New System.Windows.Forms.TabControl()
 		Me.tabPage1 = New System.Windows.Forms.TabPage()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.button3 = New System.Windows.Forms.Button()
+		Me.textBox1 = New System.Windows.Forms.TextBox()
+		Me.label3 = New System.Windows.Forms.Label()
 		Me.label2 = New System.Windows.Forms.Label()
 		Me.label1 = New System.Windows.Forms.Label()
 		Me.fec_hasta = New System.Windows.Forms.DateTimePicker()
@@ -45,6 +48,7 @@ Partial Class form_exporta
 		Me.tabPage2 = New System.Windows.Forms.TabPage()
 		Me.panel3 = New System.Windows.Forms.Panel()
 		Me.button2 = New System.Windows.Forms.Button()
+		Me.folderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog()
 		Me.Facturacion.SuspendLayout
 		Me.tabPage1.SuspendLayout
 		Me.panel2.SuspendLayout
@@ -78,18 +82,47 @@ Partial Class form_exporta
 		'panel2
 		'
 		Me.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel2.Controls.Add(Me.button3)
+		Me.panel2.Controls.Add(Me.textBox1)
+		Me.panel2.Controls.Add(Me.label3)
 		Me.panel2.Controls.Add(Me.label2)
 		Me.panel2.Controls.Add(Me.label1)
 		Me.panel2.Controls.Add(Me.fec_hasta)
 		Me.panel2.Controls.Add(Me.fec_desde)
-		Me.panel2.Location = New System.Drawing.Point(6, 76)
+		Me.panel2.Location = New System.Drawing.Point(6, 6)
 		Me.panel2.Name = "panel2"
-		Me.panel2.Size = New System.Drawing.Size(542, 176)
+		Me.panel2.Size = New System.Drawing.Size(542, 246)
 		Me.panel2.TabIndex = 5
+		'
+		'button3
+		'
+		Me.button3.Location = New System.Drawing.Point(316, 183)
+		Me.button3.Name = "button3"
+		Me.button3.Size = New System.Drawing.Size(75, 23)
+		Me.button3.TabIndex = 6
+		Me.button3.Text = "button3"
+		Me.button3.UseVisualStyleBackColor = true
+		AddHandler Me.button3.Click, AddressOf Me.Button3Click
+		'
+		'textBox1
+		'
+		Me.textBox1.HideSelection = false
+		Me.textBox1.Location = New System.Drawing.Point(141, 147)
+		Me.textBox1.Name = "textBox1"
+		Me.textBox1.Size = New System.Drawing.Size(276, 20)
+		Me.textBox1.TabIndex = 5
+		'
+		'label3
+		'
+		Me.label3.Location = New System.Drawing.Point(41, 150)
+		Me.label3.Name = "label3"
+		Me.label3.Size = New System.Drawing.Size(74, 26)
+		Me.label3.TabIndex = 4
+		Me.label3.Text = "Guardar en:"
 		'
 		'label2
 		'
-		Me.label2.Location = New System.Drawing.Point(79, 101)
+		Me.label2.Location = New System.Drawing.Point(79, 72)
 		Me.label2.Name = "label2"
 		Me.label2.Size = New System.Drawing.Size(100, 23)
 		Me.label2.TabIndex = 3
@@ -105,7 +138,7 @@ Partial Class form_exporta
 		'
 		'fec_hasta
 		'
-		Me.fec_hasta.Location = New System.Drawing.Point(228, 95)
+		Me.fec_hasta.Location = New System.Drawing.Point(228, 72)
 		Me.fec_hasta.Name = "fec_hasta"
 		Me.fec_hasta.Size = New System.Drawing.Size(200, 20)
 		Me.fec_hasta.TabIndex = 1
@@ -131,7 +164,7 @@ Partial Class form_exporta
 		'button1
 		'
 		Me.button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button1.Location = New System.Drawing.Point(354, 20)
+		Me.button1.Location = New System.Drawing.Point(342, 3)
 		Me.button1.Name = "button1"
 		Me.button1.Size = New System.Drawing.Size(183, 43)
 		Me.button1.TabIndex = 1
@@ -155,15 +188,15 @@ Partial Class form_exporta
 		Me.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
 		Me.panel3.Controls.Add(Me.button2)
 		Me.panel3.Cursor = System.Windows.Forms.Cursors.Default
-		Me.panel3.Location = New System.Drawing.Point(6, 173)
+		Me.panel3.Location = New System.Drawing.Point(6, 138)
 		Me.panel3.Name = "panel3"
-		Me.panel3.Size = New System.Drawing.Size(542, 68)
+		Me.panel3.Size = New System.Drawing.Size(542, 103)
 		Me.panel3.TabIndex = 5
 		'
 		'button2
 		'
 		Me.button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.button2.Location = New System.Drawing.Point(158, 20)
+		Me.button2.Location = New System.Drawing.Point(134, 31)
 		Me.button2.Name = "button2"
 		Me.button2.Size = New System.Drawing.Size(268, 43)
 		Me.button2.TabIndex = 1
@@ -183,11 +216,16 @@ Partial Class form_exporta
 		Me.Facturacion.ResumeLayout(false)
 		Me.tabPage1.ResumeLayout(false)
 		Me.panel2.ResumeLayout(false)
+		Me.panel2.PerformLayout
 		Me.panel1.ResumeLayout(false)
 		Me.tabPage2.ResumeLayout(false)
 		Me.panel3.ResumeLayout(false)
 		Me.ResumeLayout(false)
 	End Sub
+	Private folderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
+	Private label3 As System.Windows.Forms.Label
+	Private textBox1 As System.Windows.Forms.TextBox
+	Private button3 As System.Windows.Forms.Button
 	Private button2 As System.Windows.Forms.Button
 	Private panel3 As System.Windows.Forms.Panel
 	Private label1 As System.Windows.Forms.Label

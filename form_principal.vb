@@ -25,7 +25,6 @@ Public Partial Class form_principal
 		Me.WindowState = FormWindowState.Maximized			
 	End Sub
 	
-	
 	Sub ListadosToolStripMenuItemClick(sender As Object, e As EventArgs)
 		'llamamos al form de listado
 		Dim exporta As New form_exporta()		

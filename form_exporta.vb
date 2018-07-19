@@ -102,7 +102,7 @@ Public Partial Class form_exporta
             xlWorkSheet.Columns.AutoFit()
             
             
-	        xlWorkSheet.SaveAs("C:\Users\user\AM_FACTURACION.xlsx")
+	        xlWorkSheet.SaveAs(textBox1.Text & "\AM_FACTURACION.xlsx")
 	        xlWorkBook.Close()
 	        xlApp.Quit()
 	
@@ -110,7 +110,7 @@ Public Partial Class form_exporta
 	        clean_obj(xlWorkBook)
 	        clean_obj(xlWorkSheet)
 	
-			MsgBox("Base de datos exportada en C:\Users\user\AM_FACTURACION.xlsx")
+			MsgBox("Base de datos exportada en " & textBox1.Text & "\AM_FACTURACION.xlsx")
 	
 		Catch ex As Exception
 			MessageBox.Show(ex.Message.ToString)
@@ -210,7 +210,7 @@ Public Partial Class form_exporta
             xlWorkSheet.Columns.AutoFit()
             
             
-	        xlWorkSheet.SaveAs("C:\Users\user\AM_CLIENTES.xlsx")
+	        xlWorkSheet.SaveAs(textBox1.Text & "\AM_CLIENTES.xlsx")
 	        xlWorkBook.Close()
 	        xlApp.Quit()
 	
@@ -218,12 +218,18 @@ Public Partial Class form_exporta
 	        clean_obj(xlWorkBook)
 	        clean_obj(xlWorkSheet)
 	
-			MsgBox("Base de datos exportada en C:\Users\user\AM_CLIENTES.xlsx")
+			MsgBox("Base de datos exportada en " & textBox1.Text & "\AM_CLIENTES.xlsx")
 	
 		Catch ex As Exception
 			MessageBox.Show(ex.Message.ToString)
 		Finally
 		    conn.Close()
 		End Try
+	End Sub
+	
+	Sub Button3Click(sender As Object, e As EventArgs)
+	    If (FolderBrowserDialog1.ShowDialog() = DialogResult.OK) Then
+	        TextBox1.Text = FolderBrowserDialog1.SelectedPath
+	    End If		
 	End Sub
 End Class

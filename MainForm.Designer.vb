@@ -334,12 +334,13 @@ Partial Class MainForm
 		'
 		'button6
 		'
-		Me.button6.Location = New System.Drawing.Point(578, 15)
+		Me.button6.Location = New System.Drawing.Point(544, 21)
 		Me.button6.Name = "button6"
-		Me.button6.Size = New System.Drawing.Size(75, 23)
+		Me.button6.Size = New System.Drawing.Size(176, 23)
 		Me.button6.TabIndex = 7
-		Me.button6.Text = "button6"
+		Me.button6.Text = "test funcion nro a palabra"
 		Me.button6.UseVisualStyleBackColor = true
+		Me.button6.Visible = false
 		AddHandler Me.button6.Click, AddressOf Me.Button6Click
 		'
 		'printDocument1
