@@ -87,7 +87,7 @@ Public Partial Class MainForm
         	tx_nom_cliente.Text = cliente.TextBox1.Text
         	tx_ruc_cliente.Text = cliente.TextBox2.Text
         	tx_tel_cliente.Text = cliente.TextBox3.Text
-        	
+        	tx_id_c.Text = cliente.TextBox6.Text
     	Else
         	'tx_nom_cliente.Text = "Cancelado"
     	End If
@@ -121,7 +121,40 @@ Public Partial Class MainForm
 		  PrintDocument1.Print()
 		End If
 		
-		'AQUI GUARDAMOS LOS DATOS DE LA FACTURA IMPRESA
+		
+		'AQUI GUARDAMOS LOS DATOS DE LA FACTURA IMPRESA!
+		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
+		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
+		
+		'Dim consulta As String = "Insert Into Clientes (Nombre,RUC,Telefono) values('" & tx_nom_c.Text & "','" & tx_ruc_c.Text & "','" & tx_tel_c.Text & "')"
+		Dim consulta As String = "Insert Into Facturas (NRO_FACTURA,TICKET,ID_CLIENTE,FEC_INSERCION) values(" & textBox1.Text & "," & tx_ticket.Text & "," & tx_id_c.Text & ", CONVERT(DATETIME, '" & System.DateTime.Now & "', 103))"
+		
+		
+		
+		If tx_tel_cliente.TextLength > 0 And tx_ruc_cliente.TextLength > 0 And tx_nom_cliente.TextLength >0 And tx_ticket.TextLength > 0 And textBox1.TextLength > 0 Then
+			Try
+				conn.Open()
+				cmd = conn.CreateCommand()
+			    cmd.CommandText = consulta
+			    
+			    If cmd.ExecuteNonQuery() Then
+			    	Messagebox.Show("Impreso Exitosamente")
+			    	'tx_nom_cliente.Text = ""
+			    	'tx_ruc_cliente.Text  = ""
+			    	'tx_tel_cliente.Text = ""
+			    Else
+			    	Messagebox.Show("Error al insertar.")
+			    End If
+			    
+			Catch ex As Exception
+				MessageBox.Show(ex.Message.ToString)
+			Finally
+			    conn.Close()
+			End Try
+		Else
+			MessageBox.Show("DEBE COMPLETAR LOS CAMPOS!")
+		End If
+		
 		   
 		   
 	End Sub
@@ -285,8 +318,12 @@ Public Partial Class MainForm
 				e.Graphics.DrawString(row.cells(7).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+12, top+h/18+h/13+22+i)'cant
 				e.Graphics.DrawString(row.cells(7).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+12, h/2+30+h/18+h/13+22+i)'cant
 				
-				e.Graphics.DrawString(row.cells(3).Value.ToString + "  "+row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, top+h/18+h/13+22+i)'descripcion
-				e.Graphics.DrawString(row.cells(3).Value.ToString + "  "+row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, h/2+30+h/18+h/13+22+i)'descripcion
+				'Las lineas comentadas imprimen el nro de item + la desc
+				'e.Graphics.DrawString(row.cells(3).Value.ToString + "  "+row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, top+h/18+h/13+22+i)'descripcion
+				'e.Graphics.DrawString(row.cells(3).Value.ToString + "  "+row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, h/2+30+h/18+h/13+22+i)'descripcion
+				e.Graphics.DrawString(row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, top+h/18+h/13+22+i)'descripcion
+				e.Graphics.DrawString(row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, h/2+30+h/18+h/13+22+i)'descripcion
+
 				
 				e.Graphics.DrawString(Math.Truncate(row.cells(13).Value).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+508, top+h/18+h/13+22+i)'precio unitario
 				e.Graphics.DrawString(Math.Truncate(row.cells(13).Value).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+508, h/2+30+h/18+h/13+22+i)'precio unitario
@@ -325,8 +362,8 @@ Public Partial Class MainForm
        	e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+725, h/2+30+h/18+h/13+333+15)'TOTAL EN NROS
        	
        	'TOTAL EN LETRAS
-		e.Graphics.DrawString(letras(total) + " guaranies.", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, top+h/18+h/13+283+20+15)'TOTAL en LETRAS
-		e.Graphics.DrawString(letras(total) + " guaranies.", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, h/2+30+h/18+h/13+333+15)'TOTAL en LETRAS
+		e.Graphics.DrawString(letras(total), New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, top+h/18+h/13+283+20+15)'TOTAL en LETRAS
+		e.Graphics.DrawString(letras(total), New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, h/2+30+h/18+h/13+333+15)'TOTAL en LETRAS
 		
 		Dim blackPen As New Pen(Color.DarkGray, 1)
 		e.Graphics.DrawLine(blackPen,left,486,left+w-150,486)

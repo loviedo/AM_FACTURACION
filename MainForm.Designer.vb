@@ -58,6 +58,7 @@ Partial Class MainForm
 		Me.tx_nom_cliente = New System.Windows.Forms.TextBox()
 		Me.button5 = New System.Windows.Forms.Button()
 		Me.panel3 = New System.Windows.Forms.Panel()
+		Me.tx_id_c = New System.Windows.Forms.TextBox()
 		Me.button6 = New System.Windows.Forms.Button()
 		Me.printDocument1 = New System.Drawing.Printing.PrintDocument()
 		Me.printDialog1 = New System.Windows.Forms.PrintDialog()
@@ -322,6 +323,7 @@ Partial Class MainForm
 		'panel3
 		'
 		Me.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+		Me.panel3.Controls.Add(Me.tx_id_c)
 		Me.panel3.Controls.Add(Me.button6)
 		Me.panel3.Controls.Add(Me.button5)
 		Me.panel3.Controls.Add(Me.button1)
@@ -332,9 +334,19 @@ Partial Class MainForm
 		Me.panel3.Size = New System.Drawing.Size(987, 66)
 		Me.panel3.TabIndex = 6
 		'
+		'tx_id_c
+		'
+		Me.tx_id_c.Font = New System.Drawing.Font("Microsoft Sans Serif", 12!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.tx_id_c.Location = New System.Drawing.Point(428, 18)
+		Me.tx_id_c.Multiline = true
+		Me.tx_id_c.Name = "tx_id_c"
+		Me.tx_id_c.Size = New System.Drawing.Size(170, 29)
+		Me.tx_id_c.TabIndex = 10
+		Me.tx_id_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		'
 		'button6
 		'
-		Me.button6.Location = New System.Drawing.Point(544, 21)
+		Me.button6.Location = New System.Drawing.Point(616, 15)
 		Me.button6.Name = "button6"
 		Me.button6.Size = New System.Drawing.Size(176, 23)
 		Me.button6.TabIndex = 7
@@ -382,6 +394,7 @@ Partial Class MainForm
 		Me.panel3.PerformLayout
 		Me.ResumeLayout(false)
 	End Sub
+	Private tx_id_c As System.Windows.Forms.TextBox
 	Private checito As System.Windows.Forms.DataGridViewCheckBoxColumn
 	Private button6 As System.Windows.Forms.Button
 	Private label6 As System.Windows.Forms.Label

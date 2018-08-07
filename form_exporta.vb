@@ -30,9 +30,16 @@ Public Partial Class form_exporta
 		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
 		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
 		
-		Dim consulta As String = "Select TicketId, MenuItemId, MenuItemName, Price, Quantity, OrderNumber, CreatedDateTime, ModifiedDAteTime from TicketItems where CreatedDateTime >= cast('" & fec_desde.Text & " 00:00' as datetime) and CreatedDateTime <= cast('" & fec_hasta.Text & " 23:59' as datetime)"
+		Dim consulta As String = "Select f.NRO_FACTURA, c.Nombre as CLIENTE, t.TicketId, t.MenuItemId, t.MenuItemName, t.Price, t.Quantity, t.OrderNumber, t.CreatedDateTime, t.ModifiedDAteTime, f.FEC_INSERCION as FEC_IMPRESION, " & _
+"w.Id as ID_PERIODO, w.StartDate as INICIO_PERIODO, w.EndDate as FIN_PERIODO from TicketItems t " & _
+"left join Facturas f on f.TICKET = t.TicketId " & _
+"left join Clientes c on c.Id = f.ID_CLIENTE " & _
+"left join WorkPeriods w on t.CreatedDateTime >= w.StartDate and t.CreatedDateTime <= w.EndDate where CreatedDateTime >= cast('" & fec_desde.Text & " 00:00' as datetime) and CreatedDateTime <= cast('" & fec_hasta.Text & " 23:59' as datetime)"
+		
 		
 		'MessageBox.Show(consulta)'debug
+		
+		Dim ds As New DataSet()
 		
 		Try
 			conn.Open()
@@ -40,8 +47,12 @@ Public Partial Class form_exporta
 		    cmd.CommandText = consulta
 		    'cmd.ExecuteNonQuery()
 		    'datos = cmd.ExecuteReader()
-		   	Dim dt = new DataTable()
-		    
+		    Dim dt = New DataTable()
+		    ds.Tables.Add(dt)
+		    ds.EnforceConstraints = false
+		    dt.Constraints.Clear()
+		   
+
 		    'datos.Read()
 		    dt.Load(cmd.ExecuteReader())
 		    'AHORA GENERAR EXCEL CON LA INFO

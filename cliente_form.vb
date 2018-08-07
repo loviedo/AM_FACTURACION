@@ -92,6 +92,7 @@ Public Partial Class cliente_form
 		TextBox1.Text = DataGridView1.Item(1, i).Value.ToString
 		TextBox2.Text = DataGridView1.Item(2, i).Value.ToString
 		TextBox3.Text = DataGridView1.Item(3, i).Value.ToString
+		TextBox6.Text = DataGridView1.Item(0, i).Value.ToString
 		
 	End Sub
 	
@@ -147,5 +148,51 @@ Public Partial Class cliente_form
 	Sub Button3Click(sender As Object, e As EventArgs)
 		Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
 		Me.Close()		
+	End Sub
+	
+	Sub TextBox5TextChanged(sender As Object, e As EventArgs)
+		'Messagebox.Show("Enter key pressed")
+		'filtramos el gridview segun el texto ingresado.
+		
+		'Dim dv As DataView = DirectCast(DataGridView1.DataSource, DataTable).DefaultView
+		'dv.RowFilter = "Nombre like '%" + textBox4.Text + "%'"
+		'DataGridView1.DataSource = dv
+			
+		'If textBox4.Text.Length >=1 Then
+		'	dv.RowFilter = "Nombre like '%" + textBox4.Text + "%'"
+		'	DataGridView1.DataSource = dv
+		'	DataGridView1.Refresh
+		'End If
+		
+		'MOSTRAMOS EL GRIDVIEW SEGUN LOS DATOS UQE BUSCAMOS.
+		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
+		
+		
+		Dim consulta As String = "Select Id, Nombre,RUC, Telefono from Clientes"
+		'Dim datos As System.Data.SqlServerCe.SqlCeDataReader
+		
+		If textBox5.Text.Length >= 1 Then
+			consulta = consulta + " where RUC like '%" + textBox5.Text + "%'"
+		End If
+		
+		Try
+			conn.Open()
+			cmd = conn.CreateCommand()
+		    cmd.CommandText = consulta
+		    'cmd.ExecuteNonQuery()
+		    'datos = cmd.ExecuteReader()
+		    Dim dt = new DataTable()
+		    dt.Load(cmd.ExecuteReader())
+	       
+			DataGridView1.AutoGenerateColumns = True
+			DataGridView1.DataSource = dt
+			DataGridView1.Refresh
+		    
+		Catch ex As Exception
+			MessageBox.Show(ex.Message.ToString)
+		Finally
+		    conn.Close()
+		End Try
+		
 	End Sub
 End Class

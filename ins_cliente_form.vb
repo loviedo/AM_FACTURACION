@@ -25,7 +25,7 @@ Public Partial Class ins_cliente_form
 		'insertar nuevo cliente en la base ce
 		'aqui rellenamos en una tabla los clientes de entrada y luego filtramos segun escribamos.
 		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
-		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\user\Desktop\SambaData2.sdf")
+		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
 		
 		Dim consulta As String = "Insert Into Clientes (Nombre,RUC,Telefono) values('" & tx_nom_c.Text & "','" & tx_ruc_c.Text & "','" & tx_tel_c.Text & "')"
 		'Dim datos As System.Data.SqlServerCe.SqlCeDataReader
@@ -42,6 +42,8 @@ Public Partial Class ins_cliente_form
 			    	tx_nom_c.Text = ""
 			    	tx_ruc_c.Text  = ""
 			    	tx_tel_c.Text = ""
+			    	tx_email_c.Text = ""
+			    	tx_dir_c.Text = ""
 			    Else
 			    	Messagebox.Show("Error al insertar.")
 			    End If
@@ -52,7 +54,7 @@ Public Partial Class ins_cliente_form
 			    conn.Close()
 			End Try
 		Else
-			MessageBox.Show("DEBE COMPLETAR TODOS LOS CAMPOS")
+			MessageBox.Show("DEBE COMPLETAR LOS CAMPOS OBLIGATORIOS!")
 		End If
 		
 

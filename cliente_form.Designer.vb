@@ -37,6 +37,12 @@ Partial Class cliente_form
 		Me.button3 = New System.Windows.Forms.Button()
 		Me.button2 = New System.Windows.Forms.Button()
 		Me.panel2 = New System.Windows.Forms.Panel()
+		Me.label6 = New System.Windows.Forms.Label()
+		Me.textBox5 = New System.Windows.Forms.TextBox()
+		Me.label4 = New System.Windows.Forms.Label()
+		Me.label3 = New System.Windows.Forms.Label()
+		Me.label5 = New System.Windows.Forms.Label()
+		Me.label2 = New System.Windows.Forms.Label()
 		Me.label1 = New System.Windows.Forms.Label()
 		Me.textBox4 = New System.Windows.Forms.TextBox()
 		Me.textBox3 = New System.Windows.Forms.TextBox()
@@ -44,10 +50,7 @@ Partial Class cliente_form
 		Me.dataGridView1 = New System.Windows.Forms.DataGridView()
 		Me.textBox1 = New System.Windows.Forms.TextBox()
 		Me.button1 = New System.Windows.Forms.Button()
-		Me.label2 = New System.Windows.Forms.Label()
-		Me.label4 = New System.Windows.Forms.Label()
-		Me.label3 = New System.Windows.Forms.Label()
-		Me.label5 = New System.Windows.Forms.Label()
+		Me.textBox6 = New System.Windows.Forms.TextBox()
 		Me.panel1.SuspendLayout
 		Me.panel2.SuspendLayout
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).BeginInit
@@ -88,6 +91,9 @@ Partial Class cliente_form
 		'
 		'panel2
 		'
+		Me.panel2.Controls.Add(Me.textBox6)
+		Me.panel2.Controls.Add(Me.label6)
+		Me.panel2.Controls.Add(Me.textBox5)
 		Me.panel2.Controls.Add(Me.label4)
 		Me.panel2.Controls.Add(Me.label3)
 		Me.panel2.Controls.Add(Me.label5)
@@ -104,28 +110,87 @@ Partial Class cliente_form
 		Me.panel2.Size = New System.Drawing.Size(762, 494)
 		Me.panel2.TabIndex = 1
 		'
+		'label6
+		'
+		Me.label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label6.Location = New System.Drawing.Point(16, 45)
+		Me.label6.Name = "label6"
+		Me.label6.Size = New System.Drawing.Size(162, 29)
+		Me.label6.TabIndex = 14
+		Me.label6.Text = "Buscar por RUC"
+		'
+		'textBox5
+		'
+		Me.textBox5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.textBox5.Location = New System.Drawing.Point(184, 42)
+		Me.textBox5.Name = "textBox5"
+		Me.textBox5.Size = New System.Drawing.Size(197, 24)
+		Me.textBox5.TabIndex = 13
+		Me.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		AddHandler Me.textBox5.TextChanged, AddressOf Me.TextBox5TextChanged
+		'
+		'label4
+		'
+		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label4.Location = New System.Drawing.Point(482, 450)
+		Me.label4.Name = "label4"
+		Me.label4.Size = New System.Drawing.Size(60, 29)
+		Me.label4.TabIndex = 12
+		Me.label4.Text = "TEL:"
+		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label3
+		'
+		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label3.Location = New System.Drawing.Point(190, 449)
+		Me.label3.Name = "label3"
+		Me.label3.Size = New System.Drawing.Size(80, 29)
+		Me.label3.TabIndex = 11
+		Me.label3.Text = "RUC:"
+		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label5
+		'
+		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label5.Location = New System.Drawing.Point(149, 417)
+		Me.label5.Name = "label5"
+		Me.label5.Size = New System.Drawing.Size(121, 29)
+		Me.label5.TabIndex = 10
+		Me.label5.Text = "CLIENTE:"
+		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		'
+		'label2
+		'
+		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.label2.Location = New System.Drawing.Point(12, 418)
+		Me.label2.Name = "label2"
+		Me.label2.Size = New System.Drawing.Size(130, 29)
+		Me.label2.TabIndex = 9
+		Me.label2.Text = "Seleccionado: "
+		'
 		'label1
 		'
 		Me.label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
 		Me.label1.Location = New System.Drawing.Point(16, 15)
 		Me.label1.Name = "label1"
-		Me.label1.Size = New System.Drawing.Size(140, 29)
+		Me.label1.Size = New System.Drawing.Size(162, 29)
 		Me.label1.TabIndex = 8
-		Me.label1.Text = "Buscar Nombre"
+		Me.label1.Text = "Buscar por Nombre"
 		'
 		'textBox4
 		'
 		Me.textBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox4.Location = New System.Drawing.Point(162, 12)
+		Me.textBox4.Location = New System.Drawing.Point(184, 12)
 		Me.textBox4.Name = "textBox4"
 		Me.textBox4.Size = New System.Drawing.Size(197, 24)
 		Me.textBox4.TabIndex = 7
+		Me.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
 		AddHandler Me.textBox4.TextChanged, AddressOf Me.TextBox4TextChanged
 		'
 		'textBox3
 		'
 		Me.textBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox3.Location = New System.Drawing.Point(275, 451)
+		Me.textBox3.Location = New System.Drawing.Point(548, 455)
 		Me.textBox3.Name = "textBox3"
 		Me.textBox3.Size = New System.Drawing.Size(200, 24)
 		Me.textBox3.TabIndex = 6
@@ -133,7 +198,7 @@ Partial Class cliente_form
 		'textBox2
 		'
 		Me.textBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox2.Location = New System.Drawing.Point(275, 416)
+		Me.textBox2.Location = New System.Drawing.Point(276, 454)
 		Me.textBox2.Name = "textBox2"
 		Me.textBox2.Size = New System.Drawing.Size(200, 24)
 		Me.textBox2.TabIndex = 5
@@ -144,17 +209,17 @@ Partial Class cliente_form
 		Me.dataGridView1.AllowUserToDeleteRows = false
 		Me.dataGridView1.AllowUserToOrderColumns = true
 		Me.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-		Me.dataGridView1.Location = New System.Drawing.Point(12, 47)
+		Me.dataGridView1.Location = New System.Drawing.Point(12, 75)
 		Me.dataGridView1.Name = "dataGridView1"
 		Me.dataGridView1.ReadOnly = true
-		Me.dataGridView1.Size = New System.Drawing.Size(736, 319)
+		Me.dataGridView1.Size = New System.Drawing.Size(736, 337)
 		Me.dataGridView1.TabIndex = 4
 		AddHandler Me.dataGridView1.CellContentClick, AddressOf Me.DataGridView1CellContentClick
 		'
 		'textBox1
 		'
 		Me.textBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.textBox1.Location = New System.Drawing.Point(275, 377)
+		Me.textBox1.Location = New System.Drawing.Point(276, 418)
 		Me.textBox1.Name = "textBox1"
 		Me.textBox1.Size = New System.Drawing.Size(200, 24)
 		Me.textBox1.TabIndex = 1
@@ -164,50 +229,19 @@ Partial Class cliente_form
 		Me.button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
 		Me.button1.Location = New System.Drawing.Point(583, 9)
 		Me.button1.Name = "button1"
-		Me.button1.Size = New System.Drawing.Size(165, 30)
+		Me.button1.Size = New System.Drawing.Size(165, 60)
 		Me.button1.TabIndex = 0
 		Me.button1.Text = "Agregar Cliente"
 		Me.button1.UseVisualStyleBackColor = true
 		AddHandler Me.button1.Click, AddressOf Me.Button1Click
 		'
-		'label2
+		'textBox6
 		'
-		Me.label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label2.Location = New System.Drawing.Point(12, 376)
-		Me.label2.Name = "label2"
-		Me.label2.Size = New System.Drawing.Size(130, 29)
-		Me.label2.TabIndex = 9
-		Me.label2.Text = "Seleccionado: "
-		'
-		'label4
-		'
-		Me.label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label4.Location = New System.Drawing.Point(196, 446)
-		Me.label4.Name = "label4"
-		Me.label4.Size = New System.Drawing.Size(73, 29)
-		Me.label4.TabIndex = 12
-		Me.label4.Text = "TEL:"
-		Me.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		'
-		'label3
-		'
-		Me.label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label3.Location = New System.Drawing.Point(189, 411)
-		Me.label3.Name = "label3"
-		Me.label3.Size = New System.Drawing.Size(80, 29)
-		Me.label3.TabIndex = 11
-		Me.label3.Text = "RUC:"
-		Me.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-		'
-		'label5
-		'
-		Me.label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 16!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
-		Me.label5.Location = New System.Drawing.Point(148, 376)
-		Me.label5.Name = "label5"
-		Me.label5.Size = New System.Drawing.Size(121, 29)
-		Me.label5.TabIndex = 10
-		Me.label5.Text = "CLIENTE:"
-		Me.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+		Me.textBox6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
+		Me.textBox6.Location = New System.Drawing.Point(548, 422)
+		Me.textBox6.Name = "textBox6"
+		Me.textBox6.Size = New System.Drawing.Size(200, 24)
+		Me.textBox6.TabIndex = 15
 		'
 		'cliente_form
 		'
@@ -225,6 +259,9 @@ Partial Class cliente_form
 		CType(Me.dataGridView1,System.ComponentModel.ISupportInitialize).EndInit
 		Me.ResumeLayout(false)
 	End Sub
+	Public textBox6 As System.Windows.Forms.TextBox
+	Private textBox5 As System.Windows.Forms.TextBox
+	Private label6 As System.Windows.Forms.Label
 	Private label5 As System.Windows.Forms.Label
 	Private label3 As System.Windows.Forms.Label
 	Private label4 As System.Windows.Forms.Label
