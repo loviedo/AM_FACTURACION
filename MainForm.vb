@@ -26,10 +26,15 @@ Public Partial Class MainForm
 	
 	Sub Button1Click(sender As Object, e As EventArgs)		
 		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
-		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
+		'Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")'debug
+		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\Paco Requena\Documents\SambaPOS2\SambaData2.sdf")'release
+		
+		Dim ticket As Integer 
+		ticket = CInt(tx_ticket.text)-1
 		
 		Dim consulta As String = "Select Id, TicketId, MenuItemId, MenuItemName, PortionName, CurrencyCode, Quantity, PortionCount, OrderNumber, CreatingUserId, " & _
-			"CreatedDateTime, ModifiedDateTime, Price from TicketItems where TicketId = " & tx_ticket.Text.Trim
+			"CreatedDateTime, ModifiedDateTime, Price from TicketItems where TicketId = " & ticket.ToString & " and Voided = 0"
+
 		
 		'Dim consulta As String = "Select Id, TicketId, MenuItemId, MenuItemName, PortionName, CurrencyCode, Quantity, PortionCount, OrderNumber, CreatingUserId, CreatedDateTime, ModifiedDateTime" & _
 		'"from TicketItems where TicketId = 100"
@@ -124,7 +129,9 @@ Public Partial Class MainForm
 		
 		'AQUI GUARDAMOS LOS DATOS DE LA FACTURA IMPRESA!
 		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
-		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
+		'Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")'debug
+		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\Paco Requena\Documents\SambaPOS2\SambaData2.sdf")'release
+		
 		
 		'Dim consulta As String = "Insert Into Clientes (Nombre,RUC,Telefono) values('" & tx_nom_c.Text & "','" & tx_ruc_c.Text & "','" & tx_tel_c.Text & "')"
 		Dim consulta As String = "Insert Into Facturas (NRO_FACTURA,TICKET,ID_CLIENTE,FEC_INSERCION) values(" & textBox1.Text & "," & tx_ticket.Text & "," & tx_id_c.Text & ", CONVERT(DATETIME, '" & System.DateTime.Now & "', 103))"
@@ -185,126 +192,128 @@ Public Partial Class MainForm
 		   top = 30'.Margins.Top
 		End With
        
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top, w, h/2-30))'cuadro grande arriba
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30, w, h/2))'cuadro grande abajo
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top, w, h/2-30))'cuadro grande arriba
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30, w, h/2))'cuadro grande abajo
        
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top, w-300, h/18))'cuadro titulo espanolita
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30, w-300, h/18))'abajo
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top, w-300, h/18))'cuadro titulo espanolita
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30, w-300, h/18))'abajo
        
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+(w-300), top, 300, h/18))'cuadro titulo factura
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+(w-300), h/2+30, 300, h/18))'abajo
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+(w-300), top, 300, h/18))'cuadro titulo factura
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+(w-300), h/2+30, 300, h/18))'abajo
 		
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18, w, h/13))'cuadro datos cliente
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18, w, h/13))'abajo
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18, w, h/13))'cuadro datos cliente
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18, w, h/13))'abajo
 		
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18, w, h/13+20))'cuadro ENTRETITULO cliente
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18, w, h/13+20))'abajo
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18, w, h/13+20))'cuadro ENTRETITULO cliente
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18, w, h/13+20))'abajo
 		
-       	e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18+h/13, w, 300))'cuadro DATOS FACTURA cliente
-       	e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18+h/13, w, 330))'abajo
+       	'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18+h/13, w, 300))'cuadro DATOS FACTURA cliente
+       	'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18+h/13, w, 330))'abajo
        	
-       	e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18+h/13, left+40, 300))'cuadro CANT cliente
-       	e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18+h/13, left+40, 330))'abajo
+       	'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18+h/13, left+40, 300))'cuadro CANT cliente
+       	'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18+h/13, left+40, 330))'abajo
        	
-       	e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18+h/13, w-300, 300))'cuadro DESCRIPCION cliente
-       	e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18+h/13, w-300, 330))'abajo
+       	'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18+h/13, w-300, 300))'cuadro DESCRIPCION cliente
+       	'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18+h/13, w-300, 330))'abajo
        	
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18+h/13, w-300+75, 300))'cuadro PRECIO UNITARIO cliente
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18+h/13, w-300+75, 300))'abajo
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, top+h/18+h/13, w-300+75, 300))'cuadro PRECIO UNITARIO cliente
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left, h/2+30+h/18+h/13, w-300+75, 300))'abajo
 		
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+75, top+h/18+h/13+10, 75, 290))'cuadro EXENTAS cliente
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+75, h/2+30+h/18+h/13+10, 75, 320))'abajo
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+75, top+h/18+h/13+10, 75, 290))'cuadro EXENTAS cliente
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+75, h/2+30+h/18+h/13+10, 75, 320))'abajo
 		
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+150, top+h/18+h/13+10, 75, 290))'cuadro 5% cliente
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+150, h/2+30+h/18+h/13+10, 75, 320))'abajo
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+150, top+h/18+h/13+10, 75, 290))'cuadro 5% cliente
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+150, h/2+30+h/18+h/13+10, 75, 320))'abajo
 		
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+225, top+h/18+h/13+10, 75, 290))'cuadro 10% cliente
-		e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+225, h/2+30+h/18+h/13+10, 75, 320))'abajo
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+225, top+h/18+h/13+10, 75, 290))'cuadro 10% cliente
+		'e.Graphics.DrawRectangle(Pens.black, New Rectangle(left+w-300+225, h/2+30+h/18+h/13+10, 75, 320))'abajo
 		
-		e.Graphics.DrawString("CANTIDAD", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+h/13+4)'CANTIDAD
-		e.Graphics.DrawString("CANTIDAD", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+h/13+4)'CANTIDAD
+		'e.Graphics.DrawString("CANTIDAD", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+h/13+4)'CANTIDAD
+		'e.Graphics.DrawString("CANTIDAD", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+h/13+4)'CANTIDAD
 		
-		e.Graphics.DrawString("DESCRIPCION", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+40+210, top+h/18+h/13+4)'DESCRIPCION
-		e.Graphics.DrawString("DESCRIPCION", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+40+210,h/2+30+h/18+h/13+4)'DESCRIPCION
+		'e.Graphics.DrawString("DESCRIPCION", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+40+210, top+h/18+h/13+4)'DESCRIPCION
+		'e.Graphics.DrawString("DESCRIPCION", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+40+210,h/2+30+h/18+h/13+4)'DESCRIPCION
 		
-		e.Graphics.DrawString("P UNITARIO", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+15, top+h/18+h/13+4)'PRECIO UNITARIO
-		e.Graphics.DrawString("P UNITARIO", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+15, h/2+30+h/18+h/13+4)'PRECIO UNITARIO
+		'e.Graphics.DrawString("P UNITARIO", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+15, top+h/18+h/13+4)'PRECIO UNITARIO
+		'e.Graphics.DrawString("P UNITARIO", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+15, h/2+30+h/18+h/13+4)'PRECIO UNITARIO
 		
-		e.Graphics.DrawString("VALOR DE VENTAS", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+480+158, top+h/18+h/13+1)'VALOR DE VENTAS
-		e.Graphics.DrawString("VALOR DE VENTAS", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+480+158, h/2+30+h/18+h/13+1)'VALOR DE VENTAS
+		'e.Graphics.DrawString("VALOR DE VENTAS", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+480+158, top+h/18+h/13+1)'VALOR DE VENTAS
+		'e.Graphics.DrawString("VALOR DE VENTAS", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+480+158, h/2+30+h/18+h/13+1)'VALOR DE VENTAS
 		
-		e.Graphics.DrawString("EXENTAS", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+440+113, top+h/18+h/13+10)'EXENTAS
-		e.Graphics.DrawString("EXENTAS", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+440+113, h/2+30+h/18+h/13+10)'EXENTAS
+		'e.Graphics.DrawString("EXENTAS", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+440+113, top+h/18+h/13+10)'EXENTAS
+		'e.Graphics.DrawString("EXENTAS", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+440+113, h/2+30+h/18+h/13+10)'EXENTAS
 		
-		e.Graphics.DrawString("5%", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+480+163, top+h/18+h/13+10)'5%
-		e.Graphics.DrawString("5%", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+480+163, h/2+30+h/18+h/13+10)'5%
+		'e.Graphics.DrawString("5%", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+480+163, top+h/18+h/13+10)'5%
+		'e.Graphics.DrawString("5%", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+480+163, h/2+30+h/18+h/13+10)'5%
 		
-		e.Graphics.DrawString("10%", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+480+237, top+h/18+h/13+10)'10%
-		e.Graphics.DrawString("10%", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+480+237, h/2+30+h/18+h/13+10)'10%
+		'e.Graphics.DrawString("10%", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+480+237, top+h/18+h/13+10)'10%
+		'e.Graphics.DrawString("10%", New Font(FontFamily.GenericSansSerif, 6.0F, FontStyle.Regular), Brushes.Black, left+30+480+237, h/2+30+h/18+h/13+10)'10%
 		
-		e.Graphics.DrawString("Fecha de Emisión:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+5)'FECHA EMISION
-		e.Graphics.DrawString("Fecha de Emisión:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+5)'FECHA EMISION
+		'e.Graphics.DrawString("Fecha de Emisión:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+5)'FECHA EMISION
+		'e.Graphics.DrawString("Fecha de Emisión:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+5)'FECHA EMISION
 		
-		e.Graphics.DrawString("Nombre o Razón Social:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+5+20)'NOMBRE
-		e.Graphics.DrawString("Nombre o Razón Social:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+5+20)'NOMBRE
+		'e.Graphics.DrawString("Nombre o Razón Social:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+5+20)'NOMBRE
+		'e.Graphics.DrawString("Nombre o Razón Social:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+5+20)'NOMBRE
 		
-		e.Graphics.DrawString("RUC o CI:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+5+40)'RUC
-		e.Graphics.DrawString("RUC o CI:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+5+40)'RUC
+		'e.Graphics.DrawString("RUC o CI:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+5+40)'RUC
+		'e.Graphics.DrawString("RUC o CI:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+5+40)'RUC
 		
-		e.Graphics.DrawString("Dirección:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+5+58)'Direccion
-		e.Graphics.DrawString("Dirección:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+5+58)'Direccion
+		'e.Graphics.DrawString("Dirección:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+5+58)'Direccion
+		'e.Graphics.DrawString("Dirección:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+5+58)'Direccion
 		
-		e.Graphics.DrawString("Cond de Venta:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, top+h/18+5)'cond venta
-		e.Graphics.DrawString("Cond de Venta:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, h/2+30+h/18+5)'cond venta
+		'e.Graphics.DrawString("Cond de Venta:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, top+h/18+5)'cond venta
+		'e.Graphics.DrawString("Cond de Venta:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, h/2+30+h/18+5)'cond venta
+		e.Graphics.DrawString(textBox1.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+500, top+h/18-50)'IMPRE FACT NRO
+		e.Graphics.DrawString(textBox1.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+500, h/2+30+h/18-50)'IMPRE FACT NRO
 		
-		e.Graphics.DrawString("CONTADO (  X  )", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+100, top+h/18+5)'contado
-		e.Graphics.DrawString("CONTADO (  X  )", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+100, h/2+30+h/18+5)'contado
+		e.Graphics.DrawString("                  X", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+100, top+h/18-17)' X de contado
+		e.Graphics.DrawString("                  X", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+100, h/2+30+h/18-17)'X de contado
 		
-		e.Graphics.DrawString("CRÉDITO (    )", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+200, top+h/18+5)'credito
-		e.Graphics.DrawString("CRÉDITO (    )", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+200, h/2+30+h/18+5)'credito		
+		'e.Graphics.DrawString("CRÉDITO (    )", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+200, top+h/18+5)'credito
+		'e.Graphics.DrawString("CRÉDITO (    )", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480+200, h/2+30+h/18+5)'credito		
 
-		e.Graphics.DrawString("Nota de Remisión:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, top+h/18+5+40)'Nota de Remisión
-		e.Graphics.DrawString("Nota de Remisión:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, h/2+30+h/18+5+40)'Nota de Remisión
+		'e.Graphics.DrawString("Nota de Remisión:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, top+h/18+5+40)'Nota de Remisión
+		'e.Graphics.DrawString("Nota de Remisión:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, h/2+30+h/18+5+40)'Nota de Remisión
 		
-		e.Graphics.DrawString("Teléfono:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, top+h/18+5+58)'telefono
-		e.Graphics.DrawString("Teléfono:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, h/2+30+h/18+5+58)'telefono
+		'e.Graphics.DrawString("Teléfono:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, top+h/18+5+58)'telefono
+		'e.Graphics.DrawString("Teléfono:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+480, h/2+30+h/18+5+58)'telefono
 		
-		e.Graphics.DrawString("SUB TOTAL:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+h/13+283+20)'SUB TOTAL
-		e.Graphics.DrawString("SUB TOTAL:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+h/13+333)'SUB TOTAL
+		'e.Graphics.DrawString("SUB TOTAL:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+h/13+283+20)'SUB TOTAL
+		'e.Graphics.DrawString("SUB TOTAL:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+h/13+333)'SUB TOTAL
 		
-		e.Graphics.DrawString("TOTAL A PAGAR:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+h/13+283+20+15)'TOTAL PAGAR
-		e.Graphics.DrawString("TOTAL A PAGAR:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+h/13+333+15)'TOTAL PAGAR
+		'e.Graphics.DrawString("TOTAL A PAGAR:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+h/13+283+20+15)'TOTAL PAGAR
+		'e.Graphics.DrawString("TOTAL A PAGAR:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+h/13+333+15)'TOTAL PAGAR
 		
-		e.Graphics.DrawString("LIQUIDACIÓN DEL IVA:  (5%)", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+h/13+283+20+31)'LIQUIDACIÓN DEL IVA
-		e.Graphics.DrawString("LIQUIDACIÓN DEL IVA:  (5%)", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+h/13+333+31)'LIQUIDACIÓN DEL IVA
+		'e.Graphics.DrawString("LIQUIDACIÓN DEL IVA:  (5%)", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, top+h/18+h/13+283+20+31)'LIQUIDACIÓN DEL IVA
+		'e.Graphics.DrawString("LIQUIDACIÓN DEL IVA:  (5%)", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+5, h/2+30+h/18+h/13+333+31)'LIQUIDACIÓN DEL IVA
 		
-		e.Graphics.DrawString("(10%)", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+270, top+h/18+h/13+283+20+31)'10%
-		e.Graphics.DrawString("(10%)", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+270, h/2+30+h/18+h/13+333+31)'10%
+		'e.Graphics.DrawString("(10%)", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+270, top+h/18+h/13+283+20+31)'10%
+		'e.Graphics.DrawString("(10%)", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+270, h/2+30+h/18+h/13+333+31)'10%
 		
-		e.Graphics.DrawString("TOTAL IVA:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+450, top+h/18+h/13+283+20+31)'TOTAL IVA
-		e.Graphics.DrawString("TOTAL IVA:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+450, h/2+30+h/18+h/13+333+31)'TOTAL IVA
+		'e.Graphics.DrawString("TOTAL IVA:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+450, top+h/18+h/13+283+20+31)'TOTAL IVA
+		'e.Graphics.DrawString("TOTAL IVA:", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+450, h/2+30+h/18+h/13+333+31)'TOTAL IVA
 		
 		
 		'AQUI IMPRIMIMOS LA INFO SOBRE EL CLIENTE
 		'fecha emision
-		e.Graphics.DrawString(System.DateTime.Now.ToShortDateString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, top+h/18+5)'fecha emision
-		e.Graphics.DrawString(System.DateTime.Now.ToShortDateString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, h/2+30+h/18+5)'fecha emision
+		e.Graphics.DrawString(System.DateTime.Now.ToShortDateString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, top+h/18-15)'fecha emision
+		e.Graphics.DrawString(System.DateTime.Now.ToShortDateString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, h/2+30+h/18-15)'fecha emision
 		
 		'nombre cliente
-		e.Graphics.DrawString(tx_nom_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+140, top+h/18+5+20)'NOMBRE CLIENTE
-		e.Graphics.DrawString(tx_nom_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+140, h/2+30+h/18+5+20)'NOMBRE CLIENTE
+		e.Graphics.DrawString(tx_nom_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+140, top+h/18+5)'NOMBRE CLIENTE
+		e.Graphics.DrawString(tx_nom_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+140, h/2+30+h/18+5)'NOMBRE CLIENTE
 		
 		'RUC
-		e.Graphics.DrawString(tx_ruc_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, top+h/18+5+40)'ruc
-		e.Graphics.DrawString(tx_ruc_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, h/2+30+h/18+5+40)'ruc
+		e.Graphics.DrawString(tx_ruc_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, top+h/18+25)'ruc
+		e.Graphics.DrawString(tx_ruc_cliente.Text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, h/2+30+h/18+25)'ruc
 		
 		'Direccion
-		e.Graphics.DrawString(" - ", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, top+h/18+5+58)'dir
-		e.Graphics.DrawString(" - ", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, h/2+30+h/18+5+58)'dir
+		e.Graphics.DrawString(" - ", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, top+h/18+5+38)'dir
+		e.Graphics.DrawString(" - ", New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+70, h/2+30+h/18+5+38)'dir
 		
 		'Telefono
-		e.Graphics.DrawString(tx_tel_cliente.text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+530, top+h/18+5+58)'Telefono
-		e.Graphics.DrawString(tx_tel_cliente.text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+530, h/2+30+h/18+5+58)'Telefono
+		e.Graphics.DrawString(tx_tel_cliente.text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+530, top+h/18+5+38)'Telefono
+		e.Graphics.DrawString(tx_tel_cliente.text, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+530, h/2+30+h/18+5+38)'Telefono
 
 		Dim i As Int16 = 0
 		Dim total As Integer = 0
@@ -315,21 +324,21 @@ Public Partial Class MainForm
 			If cell.Value = True Then
 				'MessageBox.Show(cell.Value.ToStrsing & " : " & row.Index.ToString)'debug
 				
-				e.Graphics.DrawString(row.cells(7).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+12, top+h/18+h/13+22+i)'cant
-				e.Graphics.DrawString(row.cells(7).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+12, h/2+30+h/18+h/13+22+i)'cant
+				e.Graphics.DrawString(row.cells(7).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+12, top+h/18+h/13+4+i)'cant
+				e.Graphics.DrawString(row.cells(7).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+12, h/2+30+h/18+h/13+4+i)'cant
 				
 				'Las lineas comentadas imprimen el nro de item + la desc
 				'e.Graphics.DrawString(row.cells(3).Value.ToString + "  "+row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, top+h/18+h/13+22+i)'descripcion
 				'e.Graphics.DrawString(row.cells(3).Value.ToString + "  "+row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, h/2+30+h/18+h/13+22+i)'descripcion
-				e.Graphics.DrawString(row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, top+h/18+h/13+22+i)'descripcion
-				e.Graphics.DrawString(row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, h/2+30+h/18+h/13+22+i)'descripcion
+				e.Graphics.DrawString(row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, top+h/18+h/13+4+i)'descripcion
+				e.Graphics.DrawString(row.cells(4).Value.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+72, h/2+30+h/18+h/13+4+i)'descripcion
 
 				
-				e.Graphics.DrawString(Math.Truncate(row.cells(13).Value).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+508, top+h/18+h/13+22+i)'precio unitario
-				e.Graphics.DrawString(Math.Truncate(row.cells(13).Value).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+508, h/2+30+h/18+h/13+22+i)'precio unitario
+				e.Graphics.DrawString(Math.Truncate(row.cells(13).Value).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+508, top+h/18+h/13+4+i)'precio unitario
+				e.Graphics.DrawString(Math.Truncate(row.cells(13).Value).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+508, h/2+30+h/18+h/13+4+i)'precio unitario
 				
-				e.Graphics.DrawString((Math.Truncate(row.cells(7).Value)*Math.Truncate(row.cells(13).Value)).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+735, top+h/18+h/13+22+i)'total
-				e.Graphics.DrawString((Math.Truncate(row.cells(7).Value)*Math.Truncate(row.cells(13).Value)).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+735, h/2+30+h/18+h/13+22+i)'total
+				e.Graphics.DrawString((Math.Truncate(row.cells(7).Value)*Math.Truncate(row.cells(13).Value)).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+735, top+h/18+h/13+4+i)'total
+				e.Graphics.DrawString((Math.Truncate(row.cells(7).Value)*Math.Truncate(row.cells(13).Value)).ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+735, h/2+30+h/18+h/13+4+i)'total
 				
 				
 				i= i+12'espacio entre lineas
@@ -342,39 +351,39 @@ Public Partial Class MainForm
 		
 		
 		'TOTAL IVA 5% MONTO
-		e.Graphics.DrawString(total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+175, top+h/18+h/13+283+20+31)'TOTAL IVA
-		e.Graphics.DrawString(total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+175, h/2+30+h/18+h/13+333+31)'TOTAL IVA
+		e.Graphics.DrawString(total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+175, top+h/18+h/13+283+20+13)'TOTAL IVA
+		e.Graphics.DrawString(total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+175, h/2+30+h/18+h/13+333+13)'TOTAL IVA
 		
 		'TOTAL IVA 10% MONTO
-		e.Graphics.DrawString(total_iva_10, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+310, top+h/18+h/13+283+20+31)'TOTAL IVA
-		e.Graphics.DrawString(total_iva_10, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+310, h/2+30+h/18+h/13+333+31)'TOTAL IVA
+		e.Graphics.DrawString(total_iva_10, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+310, top+h/18+h/13+283+20+13)'TOTAL IVA
+		e.Graphics.DrawString(total_iva_10, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+310, h/2+30+h/18+h/13+333+13)'TOTAL IVA
 		
 		'TOTAL IVA MONTO
-		e.Graphics.DrawString(total_iva_10 + total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+520, top+h/18+h/13+283+20+31)'TOTAL IVA
-		e.Graphics.DrawString(total_iva_10 + total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+520, h/2+30+h/18+h/13+333+31)'TOTAL IVA
+		e.Graphics.DrawString(total_iva_10 + total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+520, top+h/18+h/13+283+20+13)'TOTAL IVA
+		e.Graphics.DrawString(total_iva_10 + total_iva_5, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+520, h/2+30+h/18+h/13+333+13)'TOTAL IVA
 		
         'SUBTOTAL
-       	e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+725, top+h/18+h/13+283+20)'SUBTOTAL
-       	e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+725, h/2+30+h/18+h/13+333)'SUBTOTAL
+       	e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+725, top+h/18+h/13+283+2)'SUBTOTAL
+       	e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Regular), Brushes.Black, left+725, h/2+30+h/18+h/13+315)'SUBTOTAL
        	
         'TOTAL EN NROS
-       	e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+725, top+h/18+h/13+283+20+15)'TOTAL EN NROS
-       	e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+725, h/2+30+h/18+h/13+333+15)'TOTAL EN NROS
+       	e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+725, top+h/18+h/13+283+17)'TOTAL EN NROS
+       	e.Graphics.DrawString(total.ToString, New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+725, h/2+30+h/18+h/13+330)'TOTAL EN NROS
        	
        	'TOTAL EN LETRAS
-		e.Graphics.DrawString(letras(total), New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, top+h/18+h/13+283+20+15)'TOTAL en LETRAS
-		e.Graphics.DrawString(letras(total), New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, h/2+30+h/18+h/13+333+15)'TOTAL en LETRAS
+		e.Graphics.DrawString(letras(total), New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, top+h/18+h/13+283+17)'TOTAL en LETRAS
+		e.Graphics.DrawString(letras(total), New Font(FontFamily.GenericSansSerif, 8.0F, FontStyle.Bold), Brushes.Black, left+110, h/2+30+h/18+h/13+330)'TOTAL en LETRAS
 		
 		Dim blackPen As New Pen(Color.DarkGray, 1)
-		e.Graphics.DrawLine(blackPen,left,486,left+w-150,486)
-		e.Graphics.DrawLine(blackPen,left,502,left+w,502)
-		e.Graphics.DrawLine(Pens.Black,w-300+105,468,w-300+105,485)
-		e.Graphics.DrawLine(Pens.Black,left+w-300+150,468,left+w-300+150,502)
+		'e.Graphics.DrawLine(blackPen,left,486,left+w-150,486)
+		'e.Graphics.DrawLine(blackPen,left,502,left+w,502)
+		'e.Graphics.DrawLine(Pens.Black,w-300+105,468,w-300+105,485)
+		'e.Graphics.DrawLine(Pens.Black,left+w-300+150,468,left+w-300+150,502)
 		'abajo
-		e.Graphics.DrawLine(blackPen,left,1036,left+w-150,1036)
-		e.Graphics.DrawLine(blackPen,left,1052,left+w,1052)
-		e.Graphics.DrawLine(Pens.Black,w-300+105,1018,w-300+105,1036)
-		e.Graphics.DrawLine(Pens.Black,left+w-300+150,1018,left+w-300+150,1052)
+		'e.Graphics.DrawLine(blackPen,left,1036,left+w-150,1036)
+		'e.Graphics.DrawLine(blackPen,left,1052,left+w,1052)
+		'e.Graphics.DrawLine(Pens.Black,w-300+105,1018,w-300+105,1036)
+		'e.Graphics.DrawLine(Pens.Black,left+w-300+150,1018,left+w-300+150,1052)
 		
 		
 	End Sub
@@ -467,7 +476,9 @@ Public Partial Class MainForm
 		'Traemos todos los valores para crear un excel
 		
 		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
-		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\user\Desktop\SambaData2.sdf")
+		'Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\user\Desktop\SambaData2.sdf")'debug
+		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\Paco Requena\Documents\SambaPOS2\SambaData2.sdf")'release
+		
 		
 		Dim consulta As String = "Select * from TicketItems"
 		
@@ -608,7 +619,15 @@ End Sub
 	
 	Sub Button6Click(sender As Object, e As EventArgs)
 		'prueba de nro a texto
-		MessageBox.show("1451671  /  " & letras(1451671))
+		'MessageBox.show("1451671  /  " & letras(1451671))
+		
+		Dim pkInstalledPrinters As String
+	    ' Find all printers installed
+	    For Each pkInstalledPrinters In _
+	        PrinterSettings.InstalledPrinters
+	        Messagebox.Show(pkInstalledPrinters)
+	    Next pkInstalledPrinters
+	
 	End Sub
 	
 	

@@ -28,7 +28,9 @@ Public Partial Class form_exporta
 		'Traemos todos los valores para crear un excel
 		
 		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
-		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
+		'Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")'debug
+		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\Paco Requena\Documents\SambaPOS2\SambaData2.sdf")'release
+		
 		
 		Dim consulta As String = "Select f.NRO_FACTURA, c.Nombre as CLIENTE, t.TicketId, t.MenuItemId, t.MenuItemName, t.Price, t.Quantity, t.OrderNumber, t.CreatedDateTime, t.ModifiedDAteTime, f.FEC_INSERCION as FEC_IMPRESION, " & _
 "w.Id as ID_PERIODO, w.StartDate as INICIO_PERIODO, w.EndDate as FIN_PERIODO from TicketItems t " & _
@@ -157,7 +159,9 @@ Public Partial Class form_exporta
 		'Traemos todos los valores para crear un excel
 		
 		Dim cmd As System.Data.SqlServerCe.SqlCeCommand
-		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
+		'Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")'debug
+		Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\Paco Requena\Documents\SambaPOS2\SambaData2.sdf")'release
+		
 		
 		Dim consulta As String = "Select * from Clientes"
 	
@@ -243,4 +247,5 @@ Public Partial Class form_exporta
 	        TextBox1.Text = FolderBrowserDialog1.SelectedPath
 	    End If		
 	End Sub
+
 End Class

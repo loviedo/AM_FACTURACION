@@ -343,6 +343,7 @@ Partial Class MainForm
 		Me.tx_id_c.Size = New System.Drawing.Size(170, 29)
 		Me.tx_id_c.TabIndex = 10
 		Me.tx_id_c.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+		Me.tx_id_c.Visible = false
 		'
 		'button6
 		'
@@ -352,7 +353,6 @@ Partial Class MainForm
 		Me.button6.TabIndex = 7
 		Me.button6.Text = "test funcion nro a palabra"
 		Me.button6.UseVisualStyleBackColor = true
-		Me.button6.Visible = false
 		AddHandler Me.button6.Click, AddressOf Me.Button6Click
 		'
 		'printDocument1

@@ -111,10 +111,11 @@ Partial Class ins_cliente_form
 		'
 		Me.dt_fecnac_c.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0,Byte))
 		Me.dt_fecnac_c.Location = New System.Drawing.Point(223, 202)
-		Me.dt_fecnac_c.MinDate = New Date(2016, 1, 1, 0, 0, 0, 0)
+		Me.dt_fecnac_c.MinDate = New Date(1900, 1, 1, 0, 0, 0, 0)
 		Me.dt_fecnac_c.Name = "dt_fecnac_c"
 		Me.dt_fecnac_c.Size = New System.Drawing.Size(360, 20)
 		Me.dt_fecnac_c.TabIndex = 5
+		Me.dt_fecnac_c.Value = New Date(2018, 8, 7, 22, 43, 4, 0)
 		'
 		'label7
 		'

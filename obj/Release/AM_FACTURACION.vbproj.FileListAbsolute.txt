@@ -1,0 +1,11 @@
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\bin\Release\AM_FACTURACION.exe
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Release\AM_FACTURACION.vbprojResolveAssemblyReference.cache
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Release\AM_FACTURACION.cliente_form.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Release\AM_FACTURACION.form_admin.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Release\AM_FACTURACION.form_exporta.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Release\AM_FACTURACION.form_help.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Release\AM_FACTURACION.form_principal.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Release\AM_FACTURACION.ins_cliente_form.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Release\AM_FACTURACION.MainForm.resources
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Release\AM_FACTURACION.vbproj.GenerateResource.Cache
+D:\PROYECTOS\SharpDevelop Projects\AM_FACTURACION\AM_FACTURACION\obj\Release\AM_FACTURACION.exe

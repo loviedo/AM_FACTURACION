@@ -96,11 +96,11 @@ Partial Class form_exporta
 		'
 		'button3
 		'
-		Me.button3.Location = New System.Drawing.Point(316, 183)
+		Me.button3.Location = New System.Drawing.Point(326, 173)
 		Me.button3.Name = "button3"
-		Me.button3.Size = New System.Drawing.Size(75, 23)
+		Me.button3.Size = New System.Drawing.Size(102, 23)
 		Me.button3.TabIndex = 6
-		Me.button3.Text = "button3"
+		Me.button3.Text = "SELECCIONAR"
 		Me.button3.UseVisualStyleBackColor = true
 		AddHandler Me.button3.Click, AddressOf Me.Button3Click
 		'
@@ -109,8 +109,8 @@ Partial Class form_exporta
 		Me.textBox1.HideSelection = false
 		Me.textBox1.Location = New System.Drawing.Point(141, 147)
 		Me.textBox1.Name = "textBox1"
-		Me.textBox1.Size = New System.Drawing.Size(276, 20)
-		Me.textBox1.TabIndex = 5
+		Me.textBox1.Size = New System.Drawing.Size(287, 20)
+		Me.textBox1.TabIndex = 5d
 		'
 		'label3
 		'
@@ -211,7 +211,7 @@ Partial Class form_exporta
 		Me.ClientSize = New System.Drawing.Size(586, 464)
 		Me.Controls.Add(Me.Facturacion)
 		Me.Name = "form_exporta"
-		Me.Text = "form_exporta"
+		Me.Text = "Seleccionar"
 		AddHandler Load, AddressOf Me.Form_exportaLoad
 		Me.Facturacion.ResumeLayout(false)
 		Me.tabPage1.ResumeLayout(false)

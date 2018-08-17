@@ -12,7 +12,9 @@ Imports System.Data.SqlClient
 
 Public Partial Class cliente_form
 	
-	Private conn as New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")
+	'Private conn As New System.Data.SqlServerCe.SqlCeConnection("Data Source = D:\PROYECTOS\SharpDevelop Projects\SambaData2.sdf")'debug
+	Dim conn = New System.Data.SqlServerCe.SqlCeConnection("Data Source = C:\Users\Paco Requena\Documents\SambaPOS2\SambaData2.sdf")'release
+		
 	
 	Public Sub New()
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
