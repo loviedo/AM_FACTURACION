@@ -148,10 +148,11 @@ Public Partial Class form_exporta
 		Me.tabPage1.Text = "Facturas"
 		Me.tabPage2.Text = "Clientes"
 		
+		'set formatos de fecha
 		fec_desde.Format = DateTimePickerFormat.Custom
-    	fec_desde.CustomFormat = "MM/dd/yy"
+    	fec_desde.CustomFormat = "dd/MM/yyyy"
 		fec_hasta.Format = DateTimePickerFormat.Custom
-    	fec_hasta.CustomFormat = "MM/dd/yy"
+		fec_hasta.CustomFormat = "dd/MM/yyyy"
 	End Sub
 	
 	Sub Button2Click(sender As Object, e As EventArgs)

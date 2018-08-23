@@ -353,6 +353,7 @@ Partial Class MainForm
 		Me.button6.TabIndex = 7
 		Me.button6.Text = "test funcion nro a palabra"
 		Me.button6.UseVisualStyleBackColor = true
+		Me.button6.Visible = false
 		AddHandler Me.button6.Click, AddressOf Me.Button6Click
 		'
 		'printDocument1
