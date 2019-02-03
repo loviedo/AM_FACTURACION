@@ -150,9 +150,9 @@ Public Partial Class form_exporta
 		
 		'set formatos de fecha
 		fec_desde.Format = DateTimePickerFormat.Custom
-    	fec_desde.CustomFormat = "dd/MM/yyyy"
+    	fec_desde.CustomFormat = "MM/dd/yyyy"
 		fec_hasta.Format = DateTimePickerFormat.Custom
-		fec_hasta.CustomFormat = "dd/MM/yyyy"
+		fec_hasta.CustomFormat = "MM/dd/yyyy"
 	End Sub
 	
 	Sub Button2Click(sender As Object, e As EventArgs)

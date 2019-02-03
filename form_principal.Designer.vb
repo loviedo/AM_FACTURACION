@@ -87,7 +87,7 @@ Partial Class form_principal
 		'facturarToolStripMenuItem
 		'
 		Me.facturarToolStripMenuItem.Name = "facturarToolStripMenuItem"
-		Me.facturarToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+		Me.facturarToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
 		Me.facturarToolStripMenuItem.Text = "Facturar"
 		AddHandler Me.facturarToolStripMenuItem.Click, AddressOf Me.FacturarToolStripMenuItemClick
 		'
@@ -101,7 +101,7 @@ Partial Class form_principal
 		'listadosToolStripMenuItem
 		'
 		Me.listadosToolStripMenuItem.Name = "listadosToolStripMenuItem"
-		Me.listadosToolStripMenuItem.Size = New System.Drawing.Size(117, 22)
+		Me.listadosToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
 		Me.listadosToolStripMenuItem.Text = "Listados"
 		AddHandler Me.listadosToolStripMenuItem.Click, AddressOf Me.ListadosToolStripMenuItemClick
 		'

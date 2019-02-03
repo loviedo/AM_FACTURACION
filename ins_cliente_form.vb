@@ -59,8 +59,6 @@ Public Partial Class ins_cliente_form
 		Else
 			MessageBox.Show("DEBE COMPLETAR LOS CAMPOS OBLIGATORIOS!")
 		End If
-		
-
 	End Sub
 	
 	Sub Ins_cliente_formLoad(sender As Object, e As EventArgs)

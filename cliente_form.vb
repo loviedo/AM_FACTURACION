@@ -20,8 +20,6 @@ Public Partial Class cliente_form
 		' The Me.InitializeComponent call is required for Windows Forms designer support.
 		Me.InitializeComponent()
 		'traemos la info de los clientes.
-	
-		
 	End Sub
 	
 	Sub Cliente_formLoad(sender As Object, e As EventArgs)
